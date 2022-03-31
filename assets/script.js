@@ -147,3 +147,4 @@ var showplantInfo = function(plant) {
    //      cityContainerEl.appendChild(cityEl);
    //  }
 //};
+searchButtonEl.addEventListener("click", formSubmitHandler);
