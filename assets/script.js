@@ -32,29 +32,29 @@ var formSubmitHandler = function (event) {
 //api call to OpenFarm
 
 var getPlantInfo = function (plantInput) {
-    var apiUrl = "https:openfarm.cc/api/v1/crops/" + plantInput;
+    var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(plantResponse) {
         return plantResponse.json();
     })
     .then(function(plantResponse) {
+        console.log(plantResponse)
 
-// api call to soil site needed
+
     
-    // API response for plant input
-    return fetch ()
+
     })
     
      .then(function (response) {
          return response.json();
      })
      .then(function (data) {
-         showplantInfo(data);
+         showPlantInfo(data);
      });
 
 };
 
-var showplantInfo = function(plant) {
+var showPlantInfo = function(plant) {
     if(data.length === 0) {
        plantContainerEl.textContent = "No info for selected plant";
        return;
@@ -66,14 +66,13 @@ var showplantInfo = function(plant) {
 
    //Displaying plant results with an image from website
    var image = document.createElement("img")
-   image.id = "image";
    image.innerHTML = plantImage;
    plantContainerEl.innerHTML = plantName + plantImage; 
 
    // Name pulled from OpenFarm
-   var name = document.createElement("p"); 
-   name.innerHTML = "Plant Name:" + plant.attributes.name;
-   plantContainerEl.appendChild(name);
+   var latinName = document.createElement("p"); 
+   latinName.innerHTML = "Binomial Name:" + plant.attributes.binomial_name;
+   plantContainerEl.appendChild(latinName);
    
    //Description pulled from OpenFarm
    var description = document.createElement("p"); 
@@ -85,14 +84,9 @@ var showplantInfo = function(plant) {
    sun.innerHTML = "Sun:" + plant.attributes.sun_requirements;
    plantContainerEl.appendChild(sun);
 
-   // Water info pulled from OpenFarm
-   var water = document.createElement("p"); 
-   water.innerHTML = "Water:" + plant.;
-   plantContainerEl.appendChild(water);
-
    // Growth Info pulled from OpenFarm
    var growth = document.createElement("p"); 
-   growth.innerHTML = "Growth:" + plant.;
+   growth.innerHTML = "Growth:" + plant.attributes.growing_degree_days;
    plantContainerEl.appendChild(growth);
 
    // Sowing Steps pulled from OpenFarm
@@ -113,38 +107,6 @@ var showplantInfo = function(plant) {
    // Plant Height pulled from OpenFarm
    var height = document.createElement("p");
    height.innerHTML = "Plant Height:" + plant.attributes.height;
-   plantContainerEl.appendChild(height);
-
-   // Soil Type pulled from _______
-   var soil = document.createElement("p");
-   soil.innerHTML = "Soil Type:" + plant.;
-   plantContainerEl.appendChild(soil);
-}
-   //  for (var i = 0; i < cities.length; i++) {
-   //      //var cityName = repos[i].owner.login + "/" + repos[i].name;
-
-   //      var cityEl = document.createElement("a");
-   //      cityEl.classList = "list-item flex-row justify-space-between align-center";
-   //      cityEl.setAttribute = ("href", " " + "");
-
-   //      var titleEl = document.createElement("span");
-   //      titleEl.textContent =  ""  ;
-
-   //      cityEl.appendChild(titleEl);
-
-   //      var statusEl = document.createElement("span");
-   //      statusEl.classList ="flex-row align-center";
-
-   //      if(cities[i].open_issues_count > 0) {
-   //          statusEl.innerHTML = 
-   //          "<i class='fas fa-times status-icon icon-danger'></i>" + cities[i].open_issues_count + "issue(s)";
-   //      } else {
-   //          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-   //      }
-
-   //      cityEl.appendChild(statusEl);
-
-   //      cityContainerEl.appendChild(cityEl);
-   //  }
-//};
+   plantContainerEl.appendChild(height); 
+};
 searchButtonEl.addEventListener("click", formSubmitHandler);
