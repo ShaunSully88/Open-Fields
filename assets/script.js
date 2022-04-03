@@ -104,8 +104,10 @@ var showPlantInfo = function(data) {
    plantContainerEl.appendChild(space);
 
    // Plant Height pulled from OpenFarm
-   var height = document.createElement("p");
+   var height = document.createElement("p")
    height.innerHTML = "Plant Height:" + data.attributes.height;
    plantContainerEl.appendChild(height); 
-};
+
 searchButtonEl.addEventListener("click", formSubmitHandler);
+
+
