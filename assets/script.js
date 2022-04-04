@@ -71,7 +71,8 @@ var showPlantInfo = function(data) {
    //    plantContainerEl.innerHTML = plantName + plantImage; 
 
    // Name pulled from OpenFarm
-    var latinName = document.createElement("p"); 
+    var latinName = data.data[0].attributes.binomial_name
+    document.createElement("p"); 
     latinName.innerHTML = "Binomial Name:" + data.data[0].attributes.binomial_name;
     plantContainerEl.appendChild(latinName);
    
@@ -109,5 +110,5 @@ var showPlantInfo = function(data) {
    var height = document.createElement("p");
    height.innerHTML = "Plant Height:" + data.data[0].attributes.height;
    plantContainerEl.appendChild(height); 
-};
+}
 searchButtonEl.addEventListener("click", formSubmitHandler);
