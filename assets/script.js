@@ -35,8 +35,66 @@ var getPlantInfo = function (plantInput) {
     fetch(apiUrl).then(function(response) {
         return response.json();
     })
-    .then(function(response) {
-        console.log(response) 
+    .then(function(data) {
+        console.log(data) 
+
+//     var imageId = plantResponse.data[0].relationships.pictures.data[0].id;
+
+//     var plantImage = "<img src='https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/" + imageId + "'.' />"
+
+//   // Displaying plant results with an image from website
+//       var image = document.createElement("img")
+//       image.innerHTML = plantImage;
+//       plantContainerEl.innerHTML = plantName + plantImage; 
+
+    
+    // Name pulled from OpenFarm
+    var latinName = data.data[0].attributes.binomial_name
+    var plantName = document.createElement("p"); 
+    plantName.innerHTML = " Binomial Name: " + latinName;
+    plantContainerEl.appendChild(plantName);
+   
+   //Description pulled from OpenFarm
+   var description = data.data[0].attributes.description
+   var plantDescription = document.createElement("p"); 
+   plantDescription.innerHTML = " Description: " + description;
+   plantContainerEl.appendChild(plantDescription);
+
+   // Sun info pulled from OpenFarm
+   var sun = data.data[0].attributes.sun_requirements;
+   var plantSun = document.createElement("p")
+   plantSun.innerHTML = " Sun: " + sun;
+   plantContainerEl.appendChild(plantSun);
+
+   // Growth Info pulled from OpenFarm
+   var growth = data.data[0].attributes.growing_degree_days;    
+   var plantGrowth = document.createElement("p");
+   plantGrowth.innerHTML = " Growth: " + growth + " days";
+   plantContainerEl.appendChild(plantGrowth);
+
+   // Sowing Steps pulled from OpenFarm
+   var sow = data.data[0].attributes.sowing_method; 
+   var plantSow = document.createElement("p");
+   plantSow.innerHTML = " Sowing Instructions: " + sow;
+   plantContainerEl.appendChild(plantSow);
+
+   // Seed Spread pulled from OpenFarm
+   var spread = data.data[0].attributes.spread;
+   var plantSpread = document.createElement("p");
+   plantSpread.innerHTML = " Seed Spread: Plant seeds " + spread + "cm";
+   plantContainerEl.appendChild(plantSpread);
+
+   // Row Spacing pulled from OpenFarm
+   var space = data.data[0].attributes.row_spacing;
+   var plantSpace = document.createElement("p");
+   plantSpace.innerHTML = " Row Spacing: Make sure rows are " + space + "cm apart.";
+   plantContainerEl.appendChild(plantSpace);
+
+   // Plant Height pulled from OpenFarm
+   var height = data.data[0].attributes.height;
+   var plantHeight = document.createElement("p");
+   plantHeight.innerHTML = " Plant Height: " + height + "cm tall.";
+   plantContainerEl.appendChild(plantHeight); 
     })
 
     //response from API
@@ -47,68 +105,6 @@ var getPlantInfo = function (plantInput) {
          return response.json();
      })
      
-     .then(function (data) {
-         showPlantInfo(data.data);
-     });
-
 };
 
-var showPlantInfo = function(data) {
-    if(data.length === 0) {
-       plantCardEl.textContent = "No info for selected plant";
-       return;
-   }
-
-   
-
-  // var imageId = plantResponse.data[0].relationships.pictures.data[0].id;
-
-   //var plantImage = "<img src='https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/" + imageId + "'.' />"
-
-   //Displaying plant results with an image from website
-   //    var image = document.createElement("img")
-   //    image.innerHTML = plantImage;
-   //    plantContainerEl.innerHTML = plantName + plantImage; 
-
-   // Name pulled from OpenFarm
-    var latinName = data.data[0].attributes.binomial_name
-    document.createElement("p"); 
-    latinName.innerHTML = "Binomial Name:" + data.data[0].attributes.binomial_name;
-    plantContainerEl.appendChild(latinName);
-   
-   //Description pulled from OpenFarm
-   var description = document.createElement("p"); 
-   description.innerHTML = "Description:" + data.data[0].attributes.description;
-   plantContainerEl.appendChild(description);
-
-   // Sun info pulled from OpenFarm
-   var sun = document.createElement("p");
-   sun.innerHTML = "Sun:" + data.data[0].attributes.sun_requirements;
-   plantContainerEl.appendChild(sun);
-
-   // Growth Info pulled from OpenFarm
-   var growth = document.createElement("p"); 
-   growth.innerHTML = "Growth:" + data.data[0].attributes.growing_degree_days;
-   plantContainerEl.appendChild(growth);
-
-   // Sowing Steps pulled from OpenFarm
-   var sow = document.createElement("p"); 
-   sow.innerHTML = "Sowing Instructions:" + data.data[0].attributes.sowing_method;
-   plantContainerEl.appendChild(sow);
-
-   // Seed Spread pulled from OpenFarm
-   var spread = document.createElement("p");  
-   spread.innerHTML = "Seed Spread:" + data.data[0].attributes.spread;
-   plantContainerEl.appendChild(spread);
-
-   // Row Spacing pulled from OpenFarm
-   var space = document.createElement("p")
-   space.innerHTML = "Row Spacing:" + data.data[0].attributes.row_spacing;
-   plantContainerEl.appendChild(space);
-
-   // Plant Height pulled from OpenFarm
-   var height = document.createElement("p");
-   height.innerHTML = "Plant Height:" + data.data[0].attributes.height;
-   plantContainerEl.appendChild(height); 
-}
 searchButtonEl.addEventListener("click", formSubmitHandler);
