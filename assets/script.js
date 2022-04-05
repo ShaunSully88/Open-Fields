@@ -33,7 +33,7 @@ var getPlantInfo = function (plantInput) {
     var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
-
+    // Clear data after search
         plantContainerEl.textContent = "";
         
         return response.json();
@@ -41,7 +41,7 @@ var getPlantInfo = function (plantInput) {
     .then(function(data) {
         console.log(data) 
 
-        
+      
      
    // Displaying plant results with an image from website
       
@@ -118,6 +118,6 @@ navigator.geolocation.getCurrentPosition(function(position) {
   });
 
 
-
+}
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
