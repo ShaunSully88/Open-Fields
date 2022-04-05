@@ -1,3 +1,7 @@
 html {
     font-family: 'Assistant', sans-serif;
 }
+
+.description {
+    width: 300px;
+}
