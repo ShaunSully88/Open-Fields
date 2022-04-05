@@ -33,6 +33,9 @@ var getPlantInfo = function (plantInput) {
     var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
+
+        plantContainerEl.textContent = "";
+        
         return response.json();
     })
     .then(function(data) {
@@ -53,49 +56,49 @@ var getPlantInfo = function (plantInput) {
     // Name pulled from OpenFarm
     var latinName = data.data[0].attributes.binomial_name
     var plantName = document.createElement("p"); 
-    plantName.innerHTML = "<b>Binomial Name:</b> " + latinName;
+    plantName.innerHTML = "<u><b>Binomial Name:</b></u> " + latinName;
     plantContainerEl.appendChild(plantName);
    
    //Description pulled from OpenFarm
    var description = data.data[0].attributes.description
    var plantDescription = document.createElement("p"); 
-   plantDescription.innerHTML = "<b>Description:</b> " + description;
+   plantDescription.innerHTML = "<u><b>Description:</b></u> " + description;
    plantContainerEl.appendChild(plantDescription);
 
    // Sun info pulled from OpenFarm
    var sun = data.data[0].attributes.sun_requirements;
    var plantSun = document.createElement("p")
-   plantSun.innerHTML = "<b>Sun Requirements:</b> " + sun;
+   plantSun.innerHTML = "<u><b>Sun Requirements:</b></u> " + sun;
    plantContainerEl.appendChild(plantSun);
 
    // Growth Info pulled from OpenFarm
    var growth = data.data[0].attributes.growing_degree_days;    
    var plantGrowth = document.createElement("p");
-   plantGrowth.innerHTML = "<b>Growth:</b> " + growth + " days";
+   plantGrowth.innerHTML = "<u><b>Growth:</b></u> " + growth + " days";
    plantContainerEl.appendChild(plantGrowth);
 
    // Sowing Steps pulled from OpenFarm
    var sow = data.data[0].attributes.sowing_method; 
    var plantSow = document.createElement("p");
-   plantSow.innerHTML = "<b>Sowing Instructions:</b> " + sow;
+   plantSow.innerHTML = "<u><b>Sowing Instructions:</b></u> " + sow;
    plantContainerEl.appendChild(plantSow);
 
    // Seed Spread pulled from OpenFarm
    var spread = data.data[0].attributes.spread;
    var plantSpread = document.createElement("p");
-   plantSpread.innerHTML = "<b>Seed Spread:</b> Plant seeds " + spread + "cm";
+   plantSpread.innerHTML = "<u><b>Seed Spread:</b></u> Plant seeds " + spread + "cm";
    plantContainerEl.appendChild(plantSpread);
 
    // Row Spacing pulled from OpenFarm
    var space = data.data[0].attributes.row_spacing;
    var plantSpace = document.createElement("p");
-   plantSpace.innerHTML = "<b>Row Spacing:</b> Make sure rows are " + space + "cm apart.";
+   plantSpace.innerHTML = "<u><b>Row Spacing:</b></u> Make sure rows are " + space + "cm apart.";
    plantContainerEl.appendChild(plantSpace);
 
    // Plant Height pulled from OpenFarm
    var height = data.data[0].attributes.height;
    var plantHeight = document.createElement("p");
-   plantHeight.innerHTML = "<b>Plant Height:</b> " + height + "cm tall.";
+   plantHeight.innerHTML = "<u><b>Plant Height:</b></u> " + height + "cm tall.";
    plantContainerEl.appendChild(plantHeight); 
 
    
