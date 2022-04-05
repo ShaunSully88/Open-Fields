@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/style.css" />-->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css/">
+    
     <title>Open Fields Gardening Tool </title>
 </head>
 <body class="">
@@ -15,22 +21,51 @@
         </p>    
     </header>   
     <main>
-        <div class="row">
-            <div class="card">
-                <form id="plant-form">
-                    <label class ="form label" for="search">Search Plants</label>
-                    <input name ="plant-input" id="plant-input" type="text" autofocus="true" class="form-input"/>                    
-                    <button type="button" class="btn" id="button">Search for Plant</button>
-                </form>
+
+        
+            <form class= "flex-container align-center" id="plant-form">
+                    <div class="columns 12">
+                        <label class ="form label" for="search">Search Plants
+                    </div>
+                    <div class="columns 12 ">    
+                            <input name ="plant-input" id="plant-input" type="search" autofocus="true" class="form-input"/></label>                  
+                    </div>
+                    <div class="columns 12">
+                        <button type="button" class="success button" id="button">Search for Plant</button>
+                    </div>
+                
+            </form>
+            
+        </div>
+
+        <div class="media-object stack-for-small" id = "plant-container">
+                <div class="media-object-section">
+                   <img src="https://www.almanac.com/sites/default/files/styles/large/public/image_nodes/tomatoes_helios4eos_gettyimages-edit.jpeg?itok=9UtTiH5v">
+                </div>
+                <div class="media-object-section">
+                    <h4>Showing information for: <span id ="plant-search-term"></span></h4>
+                </div>
+                <div class="media-object-section">
+                    <p class>I'm going to improvise. Listen, there's something you should know about me... about inception. An idea is like a virus, resilient, highly contagious. The smallest seed of an idea can grow. It can grow to define or destroy you.</p>
+                </div>
             </div>
+        
+            <div id = "plant-card" class="list-group">
+
+            </div>
+        </div>
+
+
+
+
+            
             <div class ="column">
-                <div class="card" id="plant-container">
-                    <h2 class ="subtitle">Showing information for: <span id = "plant-search-term"></span></h2>                
-                <div id = "plant-card" class="list-group"></div>
+                
             </div>
         </div>
     </main>
-
+  
+   
     <script src="./assets/script.js"></script>
 </body>
 </html>
