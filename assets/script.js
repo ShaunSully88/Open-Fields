@@ -97,14 +97,18 @@ var getPlantInfo = function (plantInput) {
    plantContainerEl.appendChild(plantHeight); 
     })
 
-    //response from API
-    return fetch ("https:openfarm.cc/api/v1/crops?=")
-    
-     .then(function (response) {
-        console.log(response)
-         return response.json();
-     })
-     
-};
+
+navigator.geolocation.getCurrentPosition(function(position) {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    console.log(lat, long)
+    const response = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=9d88bd6fdf0dea57ceacfd94f52fe0b0&units=metric`, {
+  method: 'POST', // *GET, POST, PUT, DELETE, etc.
+}) .then(function(data){
+  console.log(data)
+});
+  });
+
+
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
