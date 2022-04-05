@@ -36,6 +36,7 @@ var getPlantInfo = function (plantInput) {
         return response.json();
     })
     .then(function(data) {
+        debugger;
         console.log(data) 
 
 //     var imageId = plantResponse.data[0].relationships.pictures.data[0].id;
@@ -108,7 +109,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
   console.log(data)
 });
   });
-
+}
 
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
