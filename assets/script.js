@@ -11,6 +11,8 @@ var plantCardEl = document.getElementById('plant-card')
 //div for plant search results
 var plantInfoEl = document.getElementById('info')
 
+var noInfo = "Sorry, there is no information on this topic."
+
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -36,9 +38,11 @@ var getPlantInfo = function (plantInput) {
     // Clear data after search
         plantContainerEl.textContent = "";
         
+        
         return response.json();
     })
     .then(function(data) {
+
         console.log(data) 
 
       
@@ -54,50 +58,66 @@ var getPlantInfo = function (plantInput) {
 
     
     // Name pulled from OpenFarm
-    var latinName = data.data[0].attributes.binomial_name
+    var latinName = data?.data[0]?.attributes?.binomial_name
     var plantName = document.createElement("p"); 
+    if(!latinName)plantName.innerHTML = "<u><b>Latin Name:</b></u> Sorry, no information available.";
+   else
     plantName.innerHTML = "<u><b>Binomial Name:</b></u> " + latinName;
     plantContainerEl.appendChild(plantName);
    
    //Description pulled from OpenFarm
-   var description = data.data[0].attributes.description
+   var description = data?.data[0]?.attributes?.description
    var plantDescription = document.createElement("p"); 
+   if(!description)plantDescription.innerHTML = "<u><b>Description:</b></u> Sorry, no information available.";
+   else
    plantDescription.innerHTML = "<u><b>Description:</b></u> " + description;
    plantContainerEl.appendChild(plantDescription);
 
    // Sun info pulled from OpenFarm
-   var sun = data.data[0].attributes.sun_requirements;
+   var sun = data?.data[0]?.attributes?.sun_requirements;
    var plantSun = document.createElement("p")
+   if(!sun)plantSun.innerHTML = "<u><b>Sun Requirements:</b></u> Sorry, no information available.";
+   else
    plantSun.innerHTML = "<u><b>Sun Requirements:</b></u> " + sun;
    plantContainerEl.appendChild(plantSun);
 
    // Growth Info pulled from OpenFarm
-   var growth = data.data[0].attributes.growing_degree_days;    
+   var growth = data?.data[0]?.attributes?.growing_degree_days;    
    var plantGrowth = document.createElement("p");
+   if(!growth)plantGrowth.innerHTML = "<u><b>Growth:</b></u> Sorry, no information available.";
+   else
    plantGrowth.innerHTML = "<u><b>Growth:</b></u> " + growth + " days";
    plantContainerEl.appendChild(plantGrowth);
 
    // Sowing Steps pulled from OpenFarm
-   var sow = data.data[0].attributes.sowing_method; 
+   var sow = data?.data[0]?.attributes?.sowing_method; 
    var plantSow = document.createElement("p");
+   if(!sow)plantSow.innerHTML = "<u><b>Sowing Instructions:</b></u> Sorry, no information available.";
+   else
    plantSow.innerHTML = "<u><b>Sowing Instructions:</b></u> " + sow;
    plantContainerEl.appendChild(plantSow);
 
    // Seed Spread pulled from OpenFarm
-   var spread = data.data[0].attributes.spread;
+   var spread = data?.data[0]?.attributes?.spread;
    var plantSpread = document.createElement("p");
+   if(!spread)plantSpread.innerHTML = "<u><b>Seed Spread:</b></u> Sorry, no information available.";
+   else
    plantSpread.innerHTML = "<u><b>Seed Spread:</b></u> Plant seeds " + spread + "cm";
    plantContainerEl.appendChild(plantSpread);
 
    // Row Spacing pulled from OpenFarm
-   var space = data.data[0].attributes.row_spacing;
+   var space = data?.data[0]?.attributes?.row_spacing;
    var plantSpace = document.createElement("p");
+   if(!space)plantSpace.innerHTML = "<u><b>Row Spacing:</b></u> Sorry, no information available.";
+   else
    plantSpace.innerHTML = "<u><b>Row Spacing:</b></u> Make sure rows are " + space + "cm apart.";
    plantContainerEl.appendChild(plantSpace);
 
    // Plant Height pulled from OpenFarm
-   var height = data.data[0].attributes.height;
+   var height = data?.data[0]?.attributes?.height;
    var plantHeight = document.createElement("p");
+   if(!height)plantHeight.innerHTML = "<u><b>Plant Height:</b></u> Sorry, no information available.";
+   else
    plantHeight.innerHTML = "<u><b>Plant Height:</b></u> " + height + "cm tall.";
    plantContainerEl.appendChild(plantHeight); 
 
