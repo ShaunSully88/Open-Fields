@@ -11,11 +11,10 @@
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
     <link rel="stylesheet" href="./assets/style.css">
-    
     <title>Open Fields Gardening Tool </title>
 </head>
-<body class="">
-    <header class="hero">
+<body>
+    <header>
         <h1>Open Fields Gardening Tool!</h1>
         <p> This app allows you to search a vegetable/plant and provides information on the full life span, including watering requirements, soil type, and sowing method. 
         </p>    
@@ -23,34 +22,31 @@
     <main>
 
         <div class="container">
-            <form id="plant-form">
-                <div class="row">
-                    <div class="column four">
-                        <label class ="search-label" for="search">Search Plants
-                    </div>
-                    <div class="column four">
-                        <input name ="plant-input" id="plant-input" type="search" autofocus="true" class="form-input"/></input></label>
-                    </div>
-                    <div class="column four">
-                        <button type="button" class="search-button" id="button">Search for Plant</button>
+            <div class="columns">
+                <div class="column col-4">
+                    <div class="card" id="search-card">
+                        <div class="card-header">
+                            <label class="success label text-bold" for="search">Search Plants</label>
+                        </div>
+                        <div class="card-body">
+                            <input class="form-input dark-color" name="plant-input" placeholder="Enter a plant name" id="plant-input" type ="search" autofocus="true"></input>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" id="search-button">Search</button>
+                        </div>
                     </div>
                 </div>
-            </form>
+                <div class="column col-8">
+                    <div class="columns">
+                        <div class="column col-4" id="plant-image-container"></div>
+                        <div class="column col-4" id="plant-card-container"></div>
+                        <div class="column col-4" id="plant-info-container"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-           
-        <div class="container" ">
-            <div class="row">
-                <div class="column">
-                    <div class="card" id="plant-container">
-                        <h2 class ="subtitle">Showing information for: <span id = "plant-search-term"></span></h2>                
-                    <div id = "plant-card" class="list-group"></div>
-                    </div>
-                </div>
-            </div>        
-       </div>
     </main>
-  
-   
+
     <script src="./assets/script.js"></script>
 </body>
 </html>
