@@ -119,7 +119,7 @@
 //    var soil = document.createElement("p");
 //    soil.innerHTML = "Soil Type:" + plant.;
 //    plantContainerEl.appendChild(soil);
-}
+
    //  for (var i = 0; i < cities.length; i++) {
    //      //var cityName = repos[i].owner.login + "/" + repos[i].name;
 
