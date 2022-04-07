@@ -14,7 +14,6 @@ var plantInfoContainerEl = document.querySelector('#plant-info-container')
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
     
-
     var plant = plantInput.value.trim();
     console.log(plantInput)
     if(plant) {
