@@ -1,8 +1,8 @@
 // Plant/vegetable input in search bar
 var plantInput = document.querySelector('#plant-input')
 //button
-var searchButtonEl = document.querySelector('#search-button')
-//container for all plant info
+var searchButtonEl = document.getElementById('search-button')
+//container for all veggie/plant info
 var plantContainerEl = document.querySelector('#plant-container')
 //container for plant image
 var plantImageContainerEl = document.querySelector('#plant-image-container')
