@@ -3,7 +3,7 @@ var plantInput = document.querySelector('#plant-input')
 //form set up for plant search
 var plantFormEl = document.getElementById('plant-form')
 //button
-var searchButtonEl = document.getElementById('button')
+var searchButtonEl = document.getElementById('search-button')
 //container for all veggie/plant info
 var plantContainerEl = document.querySelector('#plant-container')
 //card for plant info
@@ -11,7 +11,7 @@ var plantCardEl = document.getElementById('plant-card')
 //div for plant search results
 var plantInfoEl = document.getElementById('info')
 
-var noInfo = "Sorry, there is no information on this topic."
+
 
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
