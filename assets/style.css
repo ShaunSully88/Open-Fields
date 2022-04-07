@@ -12,14 +12,11 @@
 }
 body {
     font-family: 'Assistant', sans-serif;
-    background-color: var(--primary-color);
-    color: var(--quarternary-color);
+    /* background-color: var(--primary-color); 
+    color: var(--quarternary-color);*/
 }
 
-header {
-    background-color: var(--secondary-color);
-    
-}
+
 
 #search-card {
     background-color: var(--tertiary-color);
