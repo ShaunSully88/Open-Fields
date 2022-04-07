@@ -17,15 +17,23 @@ body {
 }
 
 header {
+    align-content: center;
     padding:5vw;
-    
-}
+    }
+
 header p {
     margin:0px;
 }
+header .icon {
+    padding-top: 2px;
+}
 
-#hero {
-    padding:0px
+.heroImage {
+	background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url("https://unsplash.com/photos/4PG6wLlVag4");
+	height: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
 }
 #search-card {
     background-color: var(--tertiary-color);

@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a04a1e64e8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
@@ -14,19 +15,27 @@
     <title>Open Fields Gardening Tool </title>
 </head>
 <body>
-    <header>
-        <h1>Open Fields Gardening Tool</h1>
-        <p> This app allows you to search a vegetable/plant and provides information on the full life span, including watering requirements, soil type, and sowing method. 
-        </p>    
+    <header class="navbar">
+        <section class="navbar section">
+             <h1> <a href="./index.html">Open Fields</a></h1>
+        </section>        
+        <section class="navbar section icon-2x">
+            <i class="fa-solid fa-seedling"></i>   
+        </section>       
     </header>   
     <main>
-        
+        <section class="hero">
+            <div class="hero-cta">
+                <h2>Start Planting Todaay.</h2>
+                <p> This app allows you to search a vegetable/plant and provides information on the full life span, including watering requirements, soil type, and sowing method. </p>
+            </div>
+        </section>
         <div class="container">
             <div class="columns"> 
                 <div class="column col-md-12 col-lg-12"id="hero"> 
                     <img src="./assets/images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg">
                 </div>
-                <div class="column col-md-12 col-lg-4">
+                <div class="column col-md-12 col-lg-6">
                     <div class="card" id="search-card">
                         
                         <div class="card-header">
@@ -42,7 +51,7 @@
                 </div>
                 <div class="column col-md-12">
                     <div class="columns" id="plant-container">
-                        <div class="column col-md-12 p-centered" id="plant-image-container"></div>
+                        <div class="column col-md-12" id="plant-image-container"></div>
                         <div class="column col-md-12" id="plant-card-container"></div>
                         <div class="column col-md-12" id="plant-info-container"></div>
                     </div>
