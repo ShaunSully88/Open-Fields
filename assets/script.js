@@ -44,8 +44,7 @@ var getPlantInfo = function (plantInput) {
     .then(function(data) {
         console.log(data) 
 
-      debugger;
-     //create card div
+         //create card div
       var introPlantCard = document.createElement("div");
       //create header and body for card
       var introCardHeader = document.createElement("h2");
@@ -67,7 +66,7 @@ var getPlantInfo = function (plantInput) {
       
      var image = document.createElement("img");
      image.src = data.data[0].attributes.main_image_path; 
-     image.setAttribute('width', '250px');
+     image.setAttribute('width', '350px');
      image.setAttribute('height', '200px');
      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
