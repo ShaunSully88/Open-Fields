@@ -169,3 +169,11 @@ function setWeatherIcon(data) {
     imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
     console.log(data.current.weather[0].icon)
   }
+  //Weather temperature 
+  function setWeatherTemperture(data) {
+    const tempEl = document.querySelector('.weather-temp');
+    console.log(tempEl)
+    const temp = Math.floor(data.current.temp);
+    tempEl.innerText = `${temp} C`;
+    console.log(data.current.temp);
+  }
