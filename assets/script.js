@@ -1,23 +1,23 @@
 // Plant/vegetable input in search bar
 var plantInput = document.querySelector('#plant-input')
-//form set up for plant search
-var plantFormEl = document.getElementById('plant-form')
 //button
-var searchButtonEl = document.getElementById('button')
-//container for all veggie/plant info
+var searchButtonEl = document.querySelector('#search-button')
+//container for all plant info
 var plantContainerEl = document.querySelector('#plant-container')
-//card for plant info
-var plantCardEl = document.getElementById('plant-card')
-//div for plant search results
-var plantInfoEl = document.getElementById('info')
+//container for plant image
+var plantImageContainerEl = document.querySelector('#plant-image-container')
+//container for plant card
+var plantCardContainerEl = document.querySelector('#plant-card-container')
+//container for plant info
+var plantInfoContainerEl = document.querySelector('#plant-info-container')
 
-var noInfo = "Sorry, there is no information on this topic."
+
+
 
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
     
-
     var plant = plantInput.value.trim();
     console.log(plantInput)
     if(plant) {
@@ -36,20 +36,36 @@ var getPlantInfo = function (plantInput) {
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
-        plantContainerEl.textContent = "";
-        
-        
+
+        plantImageContainerEl.textContent = "";
+        plantCardContainerEl.textContent = "";
+        plantInfoContainerEl.textContent = "";
+
         return response.json();
     })
     .then(function(data) {
-
         console.log(data) 
 
-      
-     
+         //create card div
+      var introPlantCard = document.createElement("div");
+      //create header and body for card
+      var introCardHeader = document.createElement("h2");
+      introCardHeader.innerHTML = "Showing information for: " + plantInput;
+      var introCardBody = document.createElement("p");
+
+      //append header to card
+      introPlantCard.appendChild(introCardHeader);
+      //append body to card
+      introPlantCard.appendChild(introCardBody);
+      //append card to container
+      plantCardContainerEl.appendChild(introPlantCard);
+
+      //create Info card and body
+      var infoCard = document.createElement("div");
+      var infoCardBody = document.createElement("div");
+
    // Displaying plant results with an image from website
-      
-     var image = document.createElement("img");
+       var image = document.createElement("img");
      image.src = data.data[0].attributes.main_image_path; 
      image.setAttribute('width', '250px');
      image.setAttribute('height', '200px');
@@ -120,8 +136,20 @@ var getPlantInfo = function (plantInput) {
    else
    plantHeight.innerHTML = "<u><b>Plant Height:</b></u> " + height + "cm tall.";
    plantContainerEl.appendChild(plantHeight); 
+     
 
-   
+   infoCard.appendChild(infoCardBody);
+   plantInfoContainerEl.appendChild(infoCard);
+
+        plantContainerEl.textContent = "";
+        
+        
+        return response.json();
+    })
+    .then(function(data) {
+
+        console.log(data) 
+
     })
 
 

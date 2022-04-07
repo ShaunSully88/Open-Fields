@@ -1,0 +1,54 @@
+:root {
+    --primary-color: #362706;
+    --secondary-color: #464E2E;
+    --tertiary-color: #ACB992;
+    --quarternary-color: #E9E5D6;
+}
+
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Assistant', sans-serif;
+    /* background-color: var(--primary-color); 
+    color: var(--quarternary-color);*/
+}
+
+header {
+    padding:5vw;
+    
+}
+header p {
+    margin:0px;
+}
+
+#hero {
+    padding:0px
+}
+#search-card {
+    background-color: var(--tertiary-color);
+    border-radius: 15px;
+    margin:5vw;
+    padding: 0px;
+}
+.search-label {
+    color: var(--primary-color);
+}
+#search-button {
+    background-color: var(--secondary-color);
+
+}
+.hero {
+    background-image: url(./images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg);
+    padding: 5vw 10vw;
+    background-repeat: no-repeat;
+    width: 100vw;
+}   
+
+    
+
+.description {
+    width: 300px;
+}
