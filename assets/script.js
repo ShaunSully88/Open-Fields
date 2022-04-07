@@ -1,13 +1,8 @@
 // Plant/vegetable input in search bar
 var plantInput = document.querySelector('#plant-input')
 //button
-<<<<<<< HEAD
 var searchButtonEl = document.getElementById('search-button')
 //container for all veggie/plant info
-=======
-var searchButtonEl = document.querySelector('#search-button')
-//container for all plant info
->>>>>>> 6b895c2bdf3ac3e0b8326b1a4c8ca87b05b43ca5
 var plantContainerEl = document.querySelector('#plant-container')
 //container for plant image
 var plantImageContainerEl = document.querySelector('#plant-image-container')
@@ -15,13 +10,6 @@ var plantImageContainerEl = document.querySelector('#plant-image-container')
 var plantCardContainerEl = document.querySelector('#plant-card-container')
 //container for plant info
 var plantInfoContainerEl = document.querySelector('#plant-info-container')
-
-
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 6b895c2bdf3ac3e0b8326b1a4c8ca87b05b43ca5
 
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
