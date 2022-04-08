@@ -33,7 +33,9 @@ var getPlantInfo = function (plantInput) {
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
-        plantImageContainerEl.textContent = "";
+  
+    plantContainerEl.textContent ="";
+        plantImageContainerEl.textContent ="";
         plantCardContainerEl.textContent = "";
         plantInfoContainerEl.textContent = "";
 
@@ -54,7 +56,7 @@ var getPlantInfo = function (plantInput) {
       //append body to card
       introPlantCard.appendChild(introCardBody);
       //append card to container
-      plantCardContainerEl.appendChild(introPlantCard);
+      plantContainerEl.appendChild(introPlantCard);
 
       //create Info card and body
       var infoCard = document.createElement("div");
@@ -64,9 +66,9 @@ var getPlantInfo = function (plantInput) {
       
      var image = document.createElement("img");
      image.src = data.data[0].attributes.main_image_path; 
-     image.setAttribute('width', '250px');
+     image.setAttribute('width', '400px');
      image.setAttribute('height', '200px');
-     image.innerHTML = image;
+      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
 
     
@@ -119,7 +121,7 @@ var getPlantInfo = function (plantInput) {
    infoCardBody.appendChild(plantHeight); 
 
    infoCard.appendChild(infoCardBody);
-   plantInfoContainerEl.appendChild(infoCard);
+   plantContainerEl.appendChild(infoCard);
     })
 
 

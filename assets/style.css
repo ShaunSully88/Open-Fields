@@ -61,14 +61,18 @@ header a {
 }
 #plant-container {
     color: white;
+    padding: 10px;
 }
-
-    
-
+#plant-image-container {
+    padding-top: 40px;
+}
 .description {
     width: 300px;
 }
+#row1 {
+    display:flex;
 
+}
 
 @media only screen and (max-width: 575px) {
   body {
