@@ -65,7 +65,7 @@ var getPlantInfo = function(plantInput) {
      image.setAttribute('width', '250px');
      image.setAttribute('height', '200px');
      image.innerHTML = image;
-     plantImageContainerEl.appendChild(image); 
+     plantContainerEl.appendChild(image); 
 
         // Name pulled from OpenFarm
         var latinName = data?.data[0]?.attributes?.binomial_name;
