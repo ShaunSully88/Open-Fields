@@ -169,7 +169,7 @@ var getPlantInfo = function (plantInput) {
 function setWeatherIcon(data) {
   const imageEl = document.querySelector('.weather-icon');
   console.log(imageEl)
-  imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+  imageEl.src=`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
   console.log(data.current.weather[0].icon)
 }
 //Weather temperature 
