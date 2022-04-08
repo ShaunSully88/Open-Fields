@@ -19,7 +19,7 @@ var formSubmitHandler = function (event) {
     getPlantInfo(plant);
     plantInput.value = "";
   } else {
-    alert("Please enter a plant or vegetable.");
+    alert("Please enter a fruit or vegetable.");
   }
 };
 
