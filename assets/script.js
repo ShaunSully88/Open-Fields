@@ -26,7 +26,7 @@ var formSubmitHandler = function (event) {
 //api call to OpenFarm
 
 var getPlantInfo = function (plantInput) {
-    var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
+    var apiUrl = "https://openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
