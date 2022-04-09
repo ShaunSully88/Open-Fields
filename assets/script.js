@@ -180,24 +180,9 @@ function setWeatherTemperture(data) {
   tempEl.innerText = `${temp} C`;
   console.log(data.current.temp);
 }
-
 }
 
-   //      if(cities[i].open_issues_count > 0) {
-   //          statusEl.innerHTML = 
-   //          "<i class='fas fa-times status-icon icon-danger'></i>" + cities[i].open_issues_count + "issue(s)";
-   //      } else {
-   //          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-   //      }
-
-   //      cityEl.appendChild(statusEl);
-
-   //      cityContainerEl.appendChild(cityEl);
-   //  }
-
-//};
 searchButtonEl.addEventListener("click", formSubmitHandler);
-
 // adding geolocation using the latitude and longitude.
 // grabbed the data using fetch
 navigator.geolocation.getCurrentPosition(function(position) {
