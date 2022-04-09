@@ -183,4 +183,48 @@ function setWeatherTemperture(data) {
 
 }
 
+   //      if(cities[i].open_issues_count > 0) {
+   //          statusEl.innerHTML = 
+   //          "<i class='fas fa-times status-icon icon-danger'></i>" + cities[i].open_issues_count + "issue(s)";
+   //      } else {
+   //          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
+   //      }
+
+   //      cityEl.appendChild(statusEl);
+
+   //      cityContainerEl.appendChild(cityEl);
+   //  }
+
+//};
 searchButtonEl.addEventListener("click", formSubmitHandler);
+
+// adding geolocation using the latitude and longitude.
+// grabbed the data using fetch
+navigator.geolocation.getCurrentPosition(function(position) {
+  let lat = position.coords.latitude;
+  let long = position.coords.longitude;
+  console.log(lat, long)
+  const response = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=9d88bd6fdf0dea57ceacfd94f52fe0b0&units=metric`, {
+method: 'POST', // *GET, POST, PUT, DELETE, etc.
+}) .then(async function(data){
+console.log(data)
+console.log(data.body)
+const json = await data.json()
+console.log(json)
+setWeatherIcon(json);
+setWeatherTemperture(json);
+});
+});
+function setWeatherIcon(data) {
+const imageEl = document.querySelector('.weather-icon');
+console.log(imageEl)
+imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+console.log(data.current.weather[0].icon)
+}
+function setWeatherTemperture(data) {
+const tempEl = document.querySelector('.weather-temp');
+console.log(tempEl)
+const temp = Math.floor(data.current.temp);
+tempEl.innerText = `${temp} C`;
+console.log(data.current.temp);
+}
