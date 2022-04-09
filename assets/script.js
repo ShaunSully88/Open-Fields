@@ -63,6 +63,8 @@ var getPlantInfo = function (plantInput) {
      image.src = data.data[0].attributes.main_image_path; 
      image.setAttribute('width', '250px');
      image.setAttribute('height', '200px');
+     image.style.border = "4px solid orange";
+     image.style.borderradius = "10px";
      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
 
