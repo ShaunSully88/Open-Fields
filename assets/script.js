@@ -73,7 +73,7 @@ var getPlantInfo = function(plantInput) {
         if (!latinName)
           plantName.innerHTML =
             "<u><b>Latin Name:</b></u> Sorry, no information available.";
-        else plantName.innerHTML = "<u><b>Binomial Name:</b></u> " + latinName;
+        else plantName.innerHTML = "<u><b>BINOMIAL NAME:</b></u> " + latinName;
         plantContainerEl.appendChild(plantName);
   
         //Description pulled from OpenFarm
@@ -84,7 +84,7 @@ var getPlantInfo = function(plantInput) {
             "<u><b>Description:</b></u> Sorry, no information available.";
         else
           plantDescription.innerHTML =
-            "<u><b>Description:</b></u> " + description;
+            "<u><b>DESCRIPTION:</b></u> " + description;
         plantContainerEl.appendChild(plantDescription);
   
         // Sun info pulled from OpenFarm
@@ -93,7 +93,7 @@ var getPlantInfo = function(plantInput) {
         if (!sun)
           plantSun.innerHTML =
             "<u><b>Sun Requirements:</b></u> Sorry, no information available.";
-        else plantSun.innerHTML = "<u><b>Sun Requirements:</b></u> " + sun;
+        else plantSun.innerHTML = "<u><b>SUN REQUIREMENTS:</b></u> " + sun;
         plantContainerEl.appendChild(plantSun);
   
         // Growth Info pulled from OpenFarm
@@ -101,7 +101,7 @@ var getPlantInfo = function(plantInput) {
         var plantGrowth = document.createElement("p");
         if (!growth)
           plantGrowth.innerHTML =
-            "<u><b>Growth:</b></u> Sorry, no information available.";
+            "<u><b>GROWTH:</b></u> Sorry, no information available.";
         else plantGrowth.innerHTML = "<u><b>Growth:</b></u> " + growth + " days";
         plantContainerEl.appendChild(plantGrowth);
   
@@ -111,7 +111,7 @@ var getPlantInfo = function(plantInput) {
         if (!sow)
           plantSow.innerHTML =
             "<u><b>Sowing Instructions:</b></u> Sorry, no information available.";
-        else plantSow.innerHTML = "<u><b>Sowing Instructions:</b></u> " + sow;
+        else plantSow.innerHTML = "<u><b>SOWING INSTRUCTIONS:</b></u> " + sow;
         plantContainerEl.appendChild(plantSow);
   
         // Seed Spread pulled from OpenFarm
@@ -122,7 +122,7 @@ var getPlantInfo = function(plantInput) {
             "<u><b>Seed Spread:</b></u> Sorry, no information available.";
         else
           plantSpread.innerHTML =
-            "<u><b>Seed Spread:</b></u> Plant seeds " + spread + "cm";
+            "<u><b>SEED SPREAD:</b></u> Plant seeds " + spread + "cm";
         plantContainerEl.appendChild(plantSpread);
   
         // Row Spacing pulled from OpenFarm
@@ -133,7 +133,7 @@ var getPlantInfo = function(plantInput) {
             "<u><b>Row Spacing:</b></u> Sorry, no information available.";
         else
           plantSpace.innerHTML =
-            "<u><b>Row Spacing:</b></u> Make sure rows are " +
+            "<u><b>ROW SPACING:</b></u> Make sure rows are " +
             space +
             "cm apart.";
         plantContainerEl.appendChild(plantSpace);
@@ -146,7 +146,7 @@ var getPlantInfo = function(plantInput) {
             "<u><b>Plant Height:</b></u> Sorry, no information available.";
         else
           plantHeight.innerHTML =
-            "<u><b>Plant Height:</b></u> " + height + "cm tall.";
+            "<u><b>PLANT HEIGHT:</b></u> " + height + "cm tall.";
         plantContainerEl.appendChild(plantHeight);
 
    infoCard.appendChild(infoCardBody);
