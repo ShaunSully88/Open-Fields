@@ -19,14 +19,14 @@ var formSubmitHandler = function (event) {
     getPlantInfo(plant);
     plantInput.value = "";
   } else {
-    alert("Please enter a plant or vegetable.");
+    alert("Please enter a  or vegetable.");
   }
 };
 
 //api call to OpenFarm
 
 var getPlantInfo = function (plantInput) {
-    var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
+    var apiUrl = "https://openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
