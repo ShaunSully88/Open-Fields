@@ -10,12 +10,25 @@ var plantImageContainerEl = document.querySelector('#plant-image-container')
 var plantCardContainerEl = document.querySelector('#plant-card-container')
 //container for plant info
 var plantInfoContainerEl = document.querySelector('#plant-info-container')
+// search historu
+var searchHistory = [];
+// button for items in search history
+var veggieButton = document.querySelector("#veggie-btn")
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
   var plant = plantInput.value.trim();
   console.log(plantInput);
   if (plant) {
+
+    searchHistory.push(plant);
+        localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
+        var searchHistoryEl = document.createElement('button');
+        searchHistoryEl.className = "btn";
+        searchHistoryEl.setAttribute("veggieData", plant)
+        searchHistoryEl.innerHTML = plant;
+        veggieButton.appendChild(searchHistoryEl)
+        
     getPlantInfo(plant);
     plantInput.value = "";
   } else {
@@ -64,7 +77,7 @@ var getPlantInfo = function (plantInput) {
      image.setAttribute('width', '250px');
      image.setAttribute('height', '200px');
      image.style.border = "4px solid white";
-     img.style.borderRadius = "10px";
+     image.style.borderRadius = "10px";
      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
 
