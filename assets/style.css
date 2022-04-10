@@ -18,10 +18,18 @@ body {
 
 .navbar {
     align-items: baseline;
-    justify-content: center;
     padding:1vw 1vw;    
     }
 
+.navbar h1 {
+    font-family: 'Seaweed Script', cursive;
+}
+
+#weather-icon {
+    background-color: var(--tertiary-color);
+    border-radius: 10px;
+    
+}
 header a {
     color: white;
     text-decoration: none;
