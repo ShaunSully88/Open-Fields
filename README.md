@@ -20,3 +20,9 @@ Aside from the HTML, CSS and Javascript languages, we used the Spectre framework
 
 We used two seperate server side API's, one to https://openfarm.cc/api/v1/crops/ to access all info veggie/fruit related, the other to https://openweathermap.org/api/one-call-api to access weather data. User will have to accept location request to have weather data displayed for their specific area. 
 
+
+## Link to URL
+
+https://shaunsully88.github.io/Open-Fields/
+
+## Screenshot of Site
