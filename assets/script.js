@@ -14,6 +14,8 @@ var plantInfoContainerEl = document.querySelector('#plant-info-container')
 var searchHistory = [];
 // button for items in search history
 var veggieButton = document.querySelector("#veggie-btn")
+// Clear Search History
+var historyCardEl = document.querySelector("#searchHistory")
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -22,6 +24,7 @@ var formSubmitHandler = function (event) {
   if (plant) {
 
     searchHistory.push(plant);
+    
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
         var searchHistoryEl = document.createElement('button');
         searchHistoryEl.className = "btn";
@@ -47,7 +50,6 @@ var getPlantInfo = function (plantInput) {
         plantCardContainerEl.textContent = "";
         plantInfoContainerEl.textContent = "";
         
-
         return response.json();
     })
     .then(function(data) {
@@ -208,5 +210,12 @@ var historyHandler = function (event) {
   }
 }
 
+
+var clearHistory = function (event) {
+  localStorage.removeItem("veggieSearch");
+  historyCardEl.setAttribute("style", "display: none");
+}
+
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
+trashEl.addEventListener("click", clearHistory);
