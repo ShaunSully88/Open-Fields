@@ -16,6 +16,8 @@ var searchHistory = [];
 var veggieButton = document.querySelector("#veggie-btn")
 // Clear Search History
 var historyCardEl = document.querySelector("#searchHistory")
+//trash icon
+var trashEl = document.querySelector("#trash")
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
