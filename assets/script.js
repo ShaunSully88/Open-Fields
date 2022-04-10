@@ -25,7 +25,7 @@ var searchHistoryEl = document.createElement('button')
 // Invalid message
 var invalidInputEl = document.querySelector('#invalid-input')
 
-var weatherIconEl = document.querySelector("#weather-icon")
+var tempIconEl = document.querySelector("#temp-icon")
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
   var plant = plantInput.value.trim();
@@ -70,12 +70,7 @@ var getPlantInfo = function (plantInput) {
       introCardHeaderEl.innerHTML = "Showing information for: " + plantInput;
       var introCardBodyEl = document.createElement("p");
 
-      //append header to card
-      introPlantCardEl.appendChild(introCardHeaderEl);
-      //append body to card
-      introPlantCardEl.appendChild(introCardBodyEl);
-      //append card to container
-      plantCardContainerEl.appendChild(introPlantCardEl);
+      
 
       //create Info card and body
       var infoCardEl = document.createElement("div");
@@ -174,8 +169,13 @@ var getPlantInfo = function (plantInput) {
             "<u><b>PLANT HEIGHT:</b></u> " + height + "cm tall.";
             infoCardBodyEl.appendChild(plantHeight);
 
-   infoCardEl.appendChild(infoCardBodyEl);
-   plantInfoContainerEl.appendChild(infoCardEl);
+
+      //append dynamic elements to html
+      introPlantCardEl.appendChild(introCardHeaderEl);
+      introPlantCardEl.appendChild(introCardBodyEl);
+      plantCardContainerEl.appendChild(introPlantCardEl);
+      infoCardEl.appendChild(infoCardBodyEl);
+      plantInfoContainerEl.appendChild(infoCardEl);
     })
 }
 searchButtonEl.addEventListener("click", formSubmitHandler);
@@ -193,10 +193,12 @@ setWeatherTemperture(json);
 });
 });
 function setWeatherTemperture(data) {
-  const tempEl = document.createElement('h3');
+  const tempEl = document.createElement('p');
   const temp = Math.floor(data.current.temp);
   tempEl.innerText = `${temp} °C`;
-  weatherIconEl.appendChild(tempEl);
+  tempEl.style.margin = '0px';
+  tempEl.style.fontSize = '25px';
+  tempIconEl.appendChild(tempEl);
  }
 function setWeatherIcon(data) {
 const imageEl = document.createElement('img');

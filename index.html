@@ -16,16 +16,19 @@
 </head>
 <body>
     <header class="navbar">
-        <section class="navbar section text-light">
-             <h1>Open Fields</h1>
+        <section class="navbar section">
+             <h1><a href="./index.html">Open Fields </a></h1>
              <i class="fa-solid fa-seedling"></i>
         </section>        
         <section class="navbar section">
-             <div class = "text-light p-2 text-center" id="weather-icon"></div>
+            <div class = "px-2 text-center d-inline-flex" id="weather-icon">
+                <span class = "text-bold" id="temp-icon"></span>
+            </div>
+            
         </section>       
     </header>   
     <main>
-        <section class="hero text-light">
+        <section class="hero">
             <div class="hero-cta">
                 <h2>Start Planting Today.</h2>
                 <p> Search for a vegetable/fruit and get information on how to start seeds and care for your plants! </p>
@@ -49,7 +52,7 @@
                         </div>
                 
                     </div>
-                    <div id="search-container" class="text-light">
+                    <div id="search-container">
                         <div id="searchHistory">
                             <h3> Search History <i id="trash" class='fas fa-trash ' title='Clear History'></i></h3>
                             <div id="veggie-btn"></div>
