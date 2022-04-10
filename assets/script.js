@@ -30,7 +30,10 @@ var tempIconEl = document.querySelector("#temp-icon")
 var formSubmitHandler = function (event) {
 event.preventDefault();
   var plant = plantInput.value.trim();
-  if (plant) {
+
+  var plantExist = searchHistory.includes(plant);
+  
+  if (!plantExist) {
         searchHistory.push(plant);
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
         var searchHistoryEl = document.createElement('button')
@@ -52,6 +55,7 @@ event.preventDefault();
     }, 3000);
     invalidInputEl.appendChild(invalidInput);
   }
+  
 };
 
 //api call to OpenFarm
@@ -239,7 +243,7 @@ var loadHistory = function () {
 
 // Clearing History via Trash Button
 var clearHistory = function () {
-  localStorage.clear("VeggieSearch");
+  localStorage.clear();
   localStorage.removeItem("VeggieSearch");
   veggieButton.setAttribute("style", "display: none");
 }
