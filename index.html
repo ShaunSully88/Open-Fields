@@ -16,19 +16,18 @@
 </head>
 <body>
     <header class="navbar">
-        <section class="navbar section">
+        <section class="navbar-section">
              <h1><a href="./index.html">Open Fields </a></h1>
              <i class="fa-solid fa-seedling"></i>
         </section>   
-        <section class="navbar section" id="contact">
-            <a href="#contact-us">Contact Us</a>
+        <section class="navbar-section" id="contact">
+            <ul class="nav-list d-inline-flex">
+                <li><div class="nav-contact text-bold text-large p-0"><a href="#contact-us">CONTACT US</a></div> </li>
+                <li><div class = "px-2 text-center d-inline-flex m-0" id="weather-icon">
+                    <span class = "text-bold" id="temp-icon"></span>
+                </div></li>
+            </ul>
         </section>     
-        <section class="navbar section">
-            <div class = "px-2 text-center d-inline-flex" id="weather-icon">
-                <span class = "text-bold" id="temp-icon"></span>
-            </div>
-            
-        </section>       
     </header>   
     <main>
         <section class="hero">
@@ -47,7 +46,7 @@
                         <div class="card-body">
                             <input class="form-input dark-color" name="plant-input" placeholder="Enter a plant name" id="plant-input" type ="search" autofocus="true"></input>
                         </div>
-                        <div id="invalid-input">
+                        <div class="m-0" id="invalid-input">
                             
                         </div>
                         <div class="card-footer">
@@ -73,12 +72,12 @@
        </div>
      <footer>
          <div class="contact-us text-center" id="contact-us">
-            <h2>Contact Us</h2>
-            <h4 class="m-0">Open Fields was created by:</h4>
-            <ul class="d-inline-flex mt-2 mb-3 mx-0 text-large">
-                <li><a href="">Shaun Sullivan</a></li>
+            <h2 class="text-bold">CONTACT US</h2>
+            <h4 class="m-0 text-bold">Open Fields was created by:</h4>
+            <ul class="d-inline-flex mt-2 mb-3 mx-0 text-large text-bold">
+                <li><a href="https://shaunsully88.github.io/My-Portfolio/"target="_blank">Shaun Sullivan</a></li>
                 <li><a href="">Dawit Tucker</a></li>
-                <li><a href="https://jennasaikaly.github.io/portfolio/">Jenna Saikaly</a></li>
+                <li><a href="https://jennasaikaly.github.io/portfolio/" target="_blank">Jenna Saikaly</a></li>
             </ul>
         </div>
      </footer>  
