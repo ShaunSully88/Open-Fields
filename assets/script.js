@@ -18,6 +18,8 @@ var veggieButton = document.querySelector("#veggie-btn")
 var historyCardEl = document.querySelector("#searchHistory")
 //trash icon
 var trashEl = document.querySelector("#trash")
+//Defining weatherIcon
+var weatherIconEl = document.querySelector("#weather-icon")
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -201,7 +203,7 @@ function setWeatherTemperture(data) {
 function setWeatherIcon(data) {
 const imageEl = document.createElement('img');
 console.log(imageEl);
-imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
 console.log(data.current.weather[0].icon);
 weatherIconEl.appendChild(imageEl);
 };
@@ -214,7 +216,7 @@ var historyHandler = function (event) {
   }
 }
 
-
+// Clearing History via Trash Button
 var clearHistory = function () {
   localStorage.removeItem("VeggieSearch");
   historyCardEl.setAttribute("style", "display: none");
