@@ -151,36 +151,6 @@ var getPlantInfo = function (plantInput) {
    infoCard.appendChild(infoCardBody);
    plantInfoContainerEl.appendChild(infoCard);
     })
-
-  navigator.geolocation.getCurrentPosition(function (position) {
-    let lat = position.coords.latitude;
-    let long = position.coords.longitude;
-    console.log(lat, long);
-    const response = fetch(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=9d88bd6fdf0dea57ceacfd94f52fe0b0&units=metric`,
-      {
-        method: "POST", // *GET, POST, PUT, DELETE, etc.
-      }
-    ).then(function (data) {
-      console.log(data);
-    });
-  });
-// adding icons
-function setWeatherIcon(data) {
-  const imageEl = document.querySelector('.weather-icon');
-  console.log(imageEl)
-  imageEl.src=`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
-  console.log(data.current.weather[0].icon)
-}
-//Weather temperature 
-function setWeatherTemperture(data) {
-  const tempEl = document.querySelector('.weather-temp');
-  console.log(tempEl)
-  const temp = Math.floor(data.current.temp);
-  tempEl.innerText = `${temp} C`;
-  console.log(data.current.temp);
-}
-
 }
 
    //      if(cities[i].open_issues_count > 0) {
@@ -227,4 +197,4 @@ console.log(tempEl)
 const temp = Math.floor(data.current.temp);
 tempEl.innerText = `${temp} C`;
 console.log(data.current.temp);
-}
+};
