@@ -217,7 +217,7 @@ var historyHandler = function (event) {
 
 var clearHistory = function (event) {
   localStorage.removeItem("VeggieSearch");
-  historyCardEl.setAttribute("style", "display: none");
+  historyCardEl.setAttribute("display: none");
 }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
