@@ -21,30 +21,35 @@ var trashEl = document.querySelector("#trash")
 //Defining weatherIcon
 var weatherIconEl = document.querySelector("#weather-icon")
 // search history results
-var searchHistoryEl = document.createElement('button')
+
 // Invalid message
 var invalidInputEl = document.querySelector('#invalid-input')
 
 var weatherIconEl = document.querySelector("#weather-icon")
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
+event.preventDefault();
   var plant = plantInput.value.trim();
   if (plant) {
-
-    searchHistory.push(plant);
-    
+        searchHistory.push(plant);
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
+        var searchHistoryEl = document.createElement('button')
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
+        veggieButton.setAttribute("style", "display: block")
         searchHistoryEl.innerHTML = plant;
         searchHistoryEl.style.borderRadius = "10px";
         veggieButton.appendChild(searchHistoryEl);
         
     getPlantInfo(plant);
     plantInput.value = "";
+    
   } else {
     var invalidInput = document.createElement("p")
-    invalidInput.innerHTML = "Please enter a fruit or vegetable.";
+    invalidInput.innerHTML = "<b>Please enter a fruit or vegetable.</b>";
+    setTimeout(function(){
+      invalidInput.innerHTML="";
+    }, 3000);
     invalidInputEl.appendChild(invalidInput);
   }
 };
@@ -178,8 +183,7 @@ var getPlantInfo = function (plantInput) {
    plantInfoContainerEl.appendChild(infoCardEl);
     })
 }
-searchButtonEl.addEventListener("click", formSubmitHandler);
-// adding geolocation using the latitude and longitude.
+
 // grabbed the data using fetch
 navigator.geolocation.getCurrentPosition(function(position) {
   let lat = position.coords.latitude;
@@ -204,6 +208,7 @@ imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.pn
 weatherIconEl.appendChild(imageEl);
 };
 
+
 // Handler for Search History Results
 var historyHandler = function (event) {
   var plant = event.target.getAttribute("veggieData");
@@ -212,15 +217,34 @@ var historyHandler = function (event) {
   }
 }
 
+//Load any past city weather searches
+var loadHistory = function () {
+  searchArray = JSON.parse(localStorage.getItem("veggieSearch"));
+
+  if (searchArray) {
+      searchHistory = JSON.parse(localStorage.getItem("veggieSearch"));
+      for (let i = 0; i < searchArray.length; i++) {
+          var searchHistoryEl = document.createElement('button');
+          searchHistoryEl.className = "btn";
+          searchHistoryEl.setAttribute("veggieData", searchArray[i])
+          searchHistoryEl.innerHTML = searchArray[i];
+          historyButtonEl.appendChild(searchHistoryEl);
+          historyCardEl.removeAttribute("style");
+      }
+
+  }
+}
+
 // Clearing History via Trash Button
 var clearHistory = function () {
+  localStorage.clear("VeggieSearch");
   localStorage.removeItem("VeggieSearch");
-  searchHistoryEl.setAttribute("style", "display: none");
-
+  veggieButton.setAttribute("style", "display: none");
 }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
 trashEl.addEventListener("click", clearHistory);
 
+loadHistory();
 
