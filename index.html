@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Seaweed+Script&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a04a1e64e8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
@@ -18,46 +18,73 @@
 </head>
 <body>
     <header class="navbar">
-        <section class="navbar section">
-             <h1> <a href="./index.html">Open Fields</a></h1>
+        <section class="navbar-section">
+             <h1><a href="./index.html">Open Fields </a></h1>
              <i class="fa-solid fa-seedling"></i>
-        </section>        
-        <section class="navbar section icon-2x">
-               
-        </section>       
+        </section>   
+        <section class="navbar-section" id="contact">
+            <ul class="nav-list d-inline-flex">
+                <li><div class="nav-contact text-bold text-large p-0"><a href="#contact-us">CONTACT US</a></div> </li>
+                <li><div class = "px-2 text-center d-inline-flex m-0" id="weather-icon">
+                    <span class = "text-bold" id="temp-icon"></span>
+                </div></li>
+            </ul>
+        </section>     
     </header>   
     <main>
-        <section class="hero text-light">
+        <section class="hero">
             <div class="hero-cta">
                 <h2>Start Planting Today.</h2>
-                <p> This app allows you to search a vegetable/fruit and provides information on the full life span, including watering requirements, sun requirements, and sowing method. </p>
+
+                <p> Search for a vegetable/fruit and get information on how to start seeds and care for your plants! </p>
+
             </div>
         </section>
         <div class="container">
-            <div class="columns"> 
-                <div class="column col-md-12 col-lg-6">
+            <div class="columns" id="row1"> 
+                <div class="column col-sm-12 col-md-6 col-lg-6">
                     <div class="card" id="search-card">
-                        
                         <div class="card-header">
                             <label class="success label text-bold" for="search">Search Plants</label>
                         </div>
                         <div class="card-body">
                             <input class="form-input dark-color" name="plant-input" placeholder="Enter a plant name" id="plant-input" type ="search" autofocus="true"></input>
                         </div>
+                        <div class="m-0" id="invalid-input">
+                        </div>
                         <div class="card-footer">
                             <button class="btn btn-primary" id="search-button">Search</button>
                         </div>
+                
+                    </div>
+                    <div id="search-container">
+                        <div class= "search-history" id="searchHistory">
+                            <label class="success label text-bold" for="search">Search History <i id="trash" class='fas fa-trash ' title='Clear History'></i></label>
+                           
+                            <div id="veggie-btn"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="column col-md-12">
-                    <div class="columns" id="plant-container">
-                        <div class="column col-md-12" id="plant-image-container"></div>
-                        <div class="column col-md-12" id="plant-card-container"></div>
-                        <div class="column col-md-12" id="plant-info-container"></div>
-                    </div>
-                </div>
-            </div>
+                
+                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-image-container"></div>
+
+                
+        <div class="container">
+            <div class="columns" id="plant-container">
+                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-card-container"></div>
+                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-info-container"></div >           </div>
+       </div>
+     <footer>
+         <div class="contact-us text-center" id="contact-us">
+            <h2 class="text-bold">CONTACT US</h2>
+            <h4 class="m-0 text-bold">Open Fields was created by:</h4>
+            <ul class="d-inline-flex mt-2 mb-3 mx-0 text-large text-bold">
+                <li><a href="https://shaunsully88.github.io/My-Portfolio/" target="_blank">Shaun Sullivan</a></li>
+                <li><a href="https://dawit0t.github.io/dawit-portfolio/" target="_blank">Dawit Tucker</a></li>
+                <li><a href="https://jennasaikaly.github.io/portfolio/" target="_blank">Jenna Saikaly</a></li>
+            </ul>
         </div>
+     </footer>  
     </main>
 
     <script src="./assets/script.js"></script>
