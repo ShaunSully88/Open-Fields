@@ -216,7 +216,7 @@ var historyHandler = function (event) {
   }
 }
 
-
+// Clearing History via Trash Button
 var clearHistory = function () {
   localStorage.removeItem("VeggieSearch");
   historyCardEl.setAttribute("style", "display: none");
