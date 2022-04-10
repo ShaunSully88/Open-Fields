@@ -14,6 +14,11 @@ var plantInfoContainerEl = document.querySelector('#plant-info-container')
 var searchHistory = [];
 // button for items in search history
 var veggieButton = document.querySelector("#veggie-btn")
+// Clear Search History
+var historyCardEl = document.querySelector("#searchHistory")
+// weather icon div
+var weatherIconEl = document.querySelector('#weather-icon')
+
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -22,6 +27,7 @@ var formSubmitHandler = function (event) {
   if (plant) {
 
     searchHistory.push(plant);
+    
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
         var searchHistoryEl = document.createElement('button');
         searchHistoryEl.className = "btn";
@@ -43,12 +49,10 @@ var getPlantInfo = function (plantInput) {
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
-  //debugger;
-   // plantContainerEl.textContent ="";
-     //   plantImageContainerEl.textContent ="";
-      //  plantCardContainerEl.textContent = "";
-      //  plantInfoContainerEl.textContent = "";
-
+        plantImageContainerEl.textContent = "";
+        plantCardContainerEl.textContent = "";
+        plantInfoContainerEl.textContent = "";
+        
         return response.json();
     })
     .then(function(data) {
@@ -187,16 +191,38 @@ setWeatherIcon(json);
 setWeatherTemperture(json);
 });
 });
-function setWeatherIcon(data) {
-const imageEl = document.querySelector('.weather-icon');
-console.log(imageEl)
-//imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
-console.log(data.current.weather[0].icon)
-}
 function setWeatherTemperture(data) {
-const tempEl = document.querySelector('.weather-temp');
-console.log(tempEl)
-const temp = Math.floor(data.current.temp);
-//tempEl.innerText = `${temp} C`;
-console.log(data.current.temp);
+  const tempEl = document.createElement('h3');
+  console.log(tempEl)
+  const temp = Math.floor(data.current.temp);
+  tempEl.innerText = `${temp} C`;
+  console.log(data.current.temp);
+  weatherIconEl.appendChild(tempEl);
+ }
+function setWeatherIcon(data) {
+const imageEl = document.createElement('img');
+console.log(imageEl);
+imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+console.log(data.current.weather[0].icon);
+weatherIconEl.appendChild(imageEl);
 };
+
+// Handler for Search History Results
+var historyHandler = function (event) {
+  var plant = event.target.getAttribute("veggieData");
+  if (plant) {
+      getPlantInfo(plant);
+  }
+}
+
+
+var clearHistory = function (event) {
+  localStorage.removeItem("veggieSearch");
+  historyCardEl.setAttribute("style", "display: none");
+}
+
+searchButtonEl.addEventListener("click", formSubmitHandler);
+veggieButton.addEventListener("click", historyHandler );
+trashEl.addEventListener("click", clearHistory);
+
+
