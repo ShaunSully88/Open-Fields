@@ -15,7 +15,22 @@ body {
     background-color: var(--secondary-color);
     height: 100;
 }
+header {
+    background-color: var(--secondary-color);
+    color: var(--quarternary-color);
 
+}
+header ul{
+    height:50px;
+}
+header li{
+    height:50px;
+    padding: 8px;
+}
+.navbar-section li {
+
+    list-style-type: none;
+}
 .navbar {
     align-items: baseline;
     padding:1vw 1vw;    
@@ -24,16 +39,23 @@ body {
 .navbar h1 {
     font-family: 'Seaweed Script', cursive;
 }
-
+.nav-contact {
+    background-color: var(--tertiary-color);
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 25px;
+}
 #weather-icon {
     background-color: var(--tertiary-color);
     border-radius: 10px;
-    
+    flex-direction: row-reverse;
+    align-items:center;
 }
+
 header a {
-    color: white;
-    text-decoration: none;
-}
+    color: var(--quarternary-color) !important;
+    text-decoration: none !important;
+    }
 
 .hero {
     background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url(./images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg);
@@ -51,7 +73,7 @@ header a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
+    color: var(--quarternary-color);
 }
 
 #search-card {
@@ -68,7 +90,7 @@ header a {
 
 }
 #plant-container {
-    color: white;
+    color: var(--quarternary-color);
     padding: 10px;
     
 }
@@ -80,5 +102,22 @@ header a {
 }
 #row1 {
     display:flex;
+}
 
+footer {
+    background-color: var(--tertiary-color);
+    width:100%;
+ }
+footer ul {
+    width: 100%;
+    list-style: none;
+    display:inline;
+    justify-content: space-around;
+}
+footer li {
+    width: 100;
+}
+footer a {
+    color: var(--secondary-color) !important;
+    text-decoration: none !important;
 }
