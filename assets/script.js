@@ -10,23 +10,36 @@ var plantImageContainerEl = document.querySelector('#plant-image-container')
 var plantCardContainerEl = document.querySelector('#plant-card-container')
 //container for plant info
 var plantInfoContainerEl = document.querySelector('#plant-info-container')
+// search historu
+var searchHistory = [];
+// button for items in search history
+var veggieButton = document.querySelector("#veggie-btn")
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
   var plant = plantInput.value.trim();
   console.log(plantInput);
   if (plant) {
+
+    searchHistory.push(plant);
+        localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
+        var searchHistoryEl = document.createElement('button');
+        searchHistoryEl.className = "btn";
+        searchHistoryEl.setAttribute("veggieData", plant)
+        searchHistoryEl.innerHTML = plant;
+        veggieButton.appendChild(searchHistoryEl)
+        
     getPlantInfo(plant);
     plantInput.value = "";
   } else {
-    alert("Please enter a plant or vegetable.");
+    alert("Please enter a  or vegetable.");
   }
 };
 
 //api call to OpenFarm
 
 var getPlantInfo = function (plantInput) {
-    var apiUrl = "https:openfarm.cc/api/v1/crops?filter=" + plantInput;
+    var apiUrl = "https://openfarm.cc/api/v1/crops?filter=" + plantInput;
     console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
@@ -63,6 +76,8 @@ var getPlantInfo = function (plantInput) {
      image.src = data.data[0].attributes.main_image_path; 
      image.setAttribute('width', '250px');
      image.setAttribute('height', '200px');
+     image.style.border = "4px solid white";
+     image.style.borderRadius = "10px";
      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
 
@@ -71,8 +86,8 @@ var getPlantInfo = function (plantInput) {
         var plantName = document.createElement("p");
         if (!latinName)
           plantName.innerHTML =
-            "<u><b>Latin Name:</b></u> Sorry, no information available.";
-        else plantName.innerHTML = "<u><b>Binomial Name:</b></u> " + latinName;
+            "<u><b>BINOMIAL NAME:</b></u> Sorry, no information available.";
+        else plantName.innerHTML = "<u><b>BINOMIAL NAME:</b></u> " + latinName;
         plantContainerEl.appendChild(plantName);
   
         //Description pulled from OpenFarm
@@ -80,10 +95,10 @@ var getPlantInfo = function (plantInput) {
         var plantDescription = document.createElement("p");
         if (!description)
           plantDescription.innerHTML =
-            "<u><b>Description:</b></u> Sorry, no information available.";
+            "<u><b>DESCRIPTION:</b></u> Sorry, no information available.";
         else
           plantDescription.innerHTML =
-            "<u><b>Description:</b></u> " + description;
+            "<u><b>DESCRIPTION:</b></u> " + description;
         plantContainerEl.appendChild(plantDescription);
   
         // Sun info pulled from OpenFarm
@@ -91,8 +106,8 @@ var getPlantInfo = function (plantInput) {
         var plantSun = document.createElement("p");
         if (!sun)
           plantSun.innerHTML =
-            "<u><b>Sun Requirements:</b></u> Sorry, no information available.";
-        else plantSun.innerHTML = "<u><b>Sun Requirements:</b></u> " + sun;
+            "<u><b>SUN REQUIREMENTS:</b></u> Sorry, no information available.";
+        else plantSun.innerHTML = "<u><b>SUN REQUIREMENTS:</b></u> " + sun;
         plantContainerEl.appendChild(plantSun);
   
         // Growth Info pulled from OpenFarm
@@ -100,8 +115,8 @@ var getPlantInfo = function (plantInput) {
         var plantGrowth = document.createElement("p");
         if (!growth)
           plantGrowth.innerHTML =
-            "<u><b>Growth:</b></u> Sorry, no information available.";
-        else plantGrowth.innerHTML = "<u><b>Growth:</b></u> " + growth + " days";
+            "<u><b>GROWTH:</b></u> Sorry, no information available.";
+        else plantGrowth.innerHTML = "<u><b>GROWTH:</b></u> " + growth + " days";
         plantContainerEl.appendChild(plantGrowth);
   
         // Sowing Steps pulled from OpenFarm
@@ -109,8 +124,8 @@ var getPlantInfo = function (plantInput) {
         var plantSow = document.createElement("p");
         if (!sow)
           plantSow.innerHTML =
-            "<u><b>Sowing Instructions:</b></u> Sorry, no information available.";
-        else plantSow.innerHTML = "<u><b>Sowing Instructions:</b></u> " + sow;
+            "<u><b>SOWING INSTRUCTIONS:</b></u> Sorry, no information available.";
+        else plantSow.innerHTML = "<u><b>SOWING INSTRUCTIONS:</b></u> " + sow;
         plantContainerEl.appendChild(plantSow);
   
         // Seed Spread pulled from OpenFarm
@@ -118,10 +133,10 @@ var getPlantInfo = function (plantInput) {
         var plantSpread = document.createElement("p");
         if (!spread)
           plantSpread.innerHTML =
-            "<u><b>Seed Spread:</b></u> Sorry, no information available.";
+            "<u><b>SEED SPREAD:</b></u> Sorry, no information available.";
         else
           plantSpread.innerHTML =
-            "<u><b>Seed Spread:</b></u> Plant seeds " + spread + "cm";
+            "<u><b>SEED SPREAD:</b></u> Plant seeds " + spread + "cm";
         plantContainerEl.appendChild(plantSpread);
   
         // Row Spacing pulled from OpenFarm
@@ -129,10 +144,10 @@ var getPlantInfo = function (plantInput) {
         var plantSpace = document.createElement("p");
         if (!space)
           plantSpace.innerHTML =
-            "<u><b>Row Spacing:</b></u> Sorry, no information available.";
+            "<u><b>ROW SPACING:</b></u> Sorry, no information available.";
         else
           plantSpace.innerHTML =
-            "<u><b>Row Spacing:</b></u> Make sure rows are " +
+            "<u><b>ROW SPACING:</b></u> Make sure rows are " +
             space +
             "cm apart.";
         plantContainerEl.appendChild(plantSpace);
@@ -142,32 +157,17 @@ var getPlantInfo = function (plantInput) {
         var plantHeight = document.createElement("p");
         if (!height)
           plantHeight.innerHTML =
-            "<u><b>Plant Height:</b></u> Sorry, no information available.";
+            "<u><b>PLANT HEIGHT:</b></u> Sorry, no information available.";
         else
           plantHeight.innerHTML =
-            "<u><b>Plant Height:</b></u> " + height + "cm tall.";
+            "<u><b>PLANT HEIGHT:</b></u> " + height + "cm tall.";
         plantContainerEl.appendChild(plantHeight);
 
    infoCard.appendChild(infoCardBody);
    plantInfoContainerEl.appendChild(infoCard);
     })
 }
-
-   //      if(cities[i].open_issues_count > 0) {
-   //          statusEl.innerHTML = 
-   //          "<i class='fas fa-times status-icon icon-danger'></i>" + cities[i].open_issues_count + "issue(s)";
-   //      } else {
-   //          statusEl.innerHTML = "<i class='fas fa-check-square status-icon icon-success'></i>";
-   //      }
-
-   //      cityEl.appendChild(statusEl);
-
-   //      cityContainerEl.appendChild(cityEl);
-   //  }
-
-//};
 searchButtonEl.addEventListener("click", formSubmitHandler);
-
 // adding geolocation using the latitude and longitude.
 // grabbed the data using fetch
 navigator.geolocation.getCurrentPosition(function(position) {
