@@ -16,6 +16,9 @@ var searchHistory = [];
 var veggieButton = document.querySelector("#veggie-btn")
 // Clear Search History
 var historyCardEl = document.querySelector("#searchHistory")
+// weather icon div
+var weatherIconEl = document.querySelector('#weather-icon')
+
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -188,18 +191,20 @@ setWeatherIcon(json);
 setWeatherTemperture(json);
 });
 });
-function setWeatherIcon(data) {
-const imageEl = document.querySelector('.weather-icon');
-console.log(imageEl)
-imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
-console.log(data.current.weather[0].icon)
-}
 function setWeatherTemperture(data) {
-const tempEl = document.querySelector('.weather-temp');
-console.log(tempEl)
-const temp = Math.floor(data.current.temp);
-tempEl.innerText = `${temp} C`;
-console.log(data.current.temp);
+  const tempEl = document.createElement('h3');
+  console.log(tempEl)
+  const temp = Math.floor(data.current.temp);
+  tempEl.innerText = `${temp} C`;
+  console.log(data.current.temp);
+  weatherIconEl.appendChild(tempEl);
+ }
+function setWeatherIcon(data) {
+const imageEl = document.createElement('img');
+console.log(imageEl);
+imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+console.log(data.current.weather[0].icon);
+weatherIconEl.appendChild(imageEl);
 };
 
 // Handler for Search History Results
@@ -219,3 +224,5 @@ var clearHistory = function (event) {
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
 trashEl.addEventListener("click", clearHistory);
+
+
