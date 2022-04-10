@@ -46,6 +46,7 @@ var getPlantInfo = function (plantInput) {
         plantImageContainerEl.textContent = "";
         plantCardContainerEl.textContent = "";
         plantInfoContainerEl.textContent = "";
+        plantContainerEl.textContent = "";
 
         return response.json();
     })
