@@ -21,10 +21,10 @@ var trashEl = document.querySelector("#trash")
 //Defining weatherIcon
 var weatherIconEl = document.querySelector("#weather-icon")
 
+var weatherIconEl = document.querySelector("#weather-icon")
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
   var plant = plantInput.value.trim();
-  console.log(plantInput);
   if (plant) {
 
     searchHistory.push(plant);
@@ -47,7 +47,6 @@ var formSubmitHandler = function (event) {
 
 var getPlantInfo = function (plantInput) {
     var apiUrl = "https://openfarm.cc/api/v1/crops?filter=" + plantInput;
-    console.log(apiUrl)
     fetch(apiUrl).then(function(response) {
     // Clear data after search
         plantImageContainerEl.textContent = "";
@@ -57,7 +56,6 @@ var getPlantInfo = function (plantInput) {
         return response.json();
     })
     .then(function(data) {
-        console.log(data) 
 
          //create card div
       var introPlantCardEl = document.createElement("div");
@@ -180,31 +178,23 @@ searchButtonEl.addEventListener("click", formSubmitHandler);
 navigator.geolocation.getCurrentPosition(function(position) {
   let lat = position.coords.latitude;
   let long = position.coords.longitude;
-  console.log(lat, long)
   const response = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=9d88bd6fdf0dea57ceacfd94f52fe0b0&units=metric`, {
 method: 'POST', // *GET, POST, PUT, DELETE, etc.
 }) .then(async function(data){
-console.log(data)
-console.log(data.body)
 const json = await data.json()
-console.log(json)
 setWeatherIcon(json);
 setWeatherTemperture(json);
 });
 });
 function setWeatherTemperture(data) {
   const tempEl = document.createElement('h3');
-  console.log(tempEl)
   const temp = Math.floor(data.current.temp);
-  tempEl.innerText = `${temp} C`;
-  console.log(data.current.temp);
+  tempEl.innerText = `${temp} °C`;
   weatherIconEl.appendChild(tempEl);
  }
 function setWeatherIcon(data) {
 const imageEl = document.createElement('img');
-console.log(imageEl);
 imageEl.src=`http://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`;
-console.log(data.current.weather[0].icon);
 weatherIconEl.appendChild(imageEl);
 };
 
