@@ -46,7 +46,7 @@ var getPlantInfo = function (plantInput) {
         plantImageContainerEl.textContent = "";
         plantCardContainerEl.textContent = "";
         plantInfoContainerEl.textContent = "";
-        plantContainerEl.textContent = "";
+        
 
         return response.json();
     })
@@ -199,3 +199,14 @@ const temp = Math.floor(data.current.temp);
 tempEl.innerText = `${temp} C`;
 console.log(data.current.temp);
 };
+
+// Handler for Search History Results
+var historyHandler = function (event) {
+  var plant = event.target.getAttribute("veggieData");
+  if (plant) {
+      getPlantInfo(plant);
+  }
+}
+
+searchButtonEl.addEventListener("click", formSubmitHandler);
+veggieButton.addEventListener("click", historyHandler );
