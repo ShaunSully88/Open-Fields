@@ -36,6 +36,7 @@ var formSubmitHandler = function (event) {
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
+        searchHistoryEl.setAttribute("style", "display: block")
         searchHistoryEl.innerHTML = plant;
         searchHistoryEl.style.borderRadius = "10px";
         veggieButton.appendChild(searchHistoryEl);
@@ -44,7 +45,10 @@ var formSubmitHandler = function (event) {
     plantInput.value = "";
   } else {
     var invalidInput = document.createElement("p")
-    invalidInput.innerHTML = "Please enter a fruit or vegetable.";
+    invalidInput.innerHTML = "<b>Please enter a fruit or vegetable.</b>";
+    setTimeout(function(){
+      invalidInput.innerHTML="";
+    }, 3000);
     invalidInputEl.appendChild(invalidInput);
   }
 };
