@@ -22,6 +22,8 @@ var trashEl = document.querySelector("#trash")
 var weatherIconEl = document.querySelector("#weather-icon")
 // search history results
 var searchHistoryEl = document.createElement('button')
+// Invalid message
+var invalidInputEl = document.querySelector('#invalid-input')
 
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
@@ -41,7 +43,10 @@ var formSubmitHandler = function (event) {
     getPlantInfo(plant);
     plantInput.value = "";
   } else {
-    introCardHeaderEl.innerHTML = "Please enter a fruit or vegetable."
+    var invalidInput = document.createElement("p")
+    invalidInput.innerHTML = "Please enter a fruit or vegetable.";
+    invalidInputEl.appendChild(invalidInput);
+
   }
 };
 
@@ -222,6 +227,7 @@ var historyHandler = function (event) {
 var clearHistory = function () {
   localStorage.removeItem("VeggieSearch");
   searchHistoryEl.setAttribute("style", "display: none");
+
 }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
