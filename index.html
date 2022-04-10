@@ -21,7 +21,7 @@
              <i class="fa-solid fa-seedling"></i>
         </section>        
         <section class="navbar section icon-2x">
-               
+             <div id="weather-icon"></div>
         </section>       
     </header>   
     <main>
@@ -35,7 +35,6 @@
             <div class="columns" id="row1"> 
                 <div class="column col-sm-12 col-md-6 col-lg-6">
                     <div class="card" id="search-card">
-                        
                         <div class="card-header">
                             <label class="success label text-bold" for="search">Search Plants</label>
                         </div>
@@ -46,6 +45,12 @@
                             <button class="btn btn-primary" id="search-button">Search</button>
                         </div>
                     </div>
+                    <div id="search-container" class="text-light">
+                        <div id="searchHistory">
+                            <h3> Search History <i id="trash" class='fas fa-trash ' title='Clear History'></i></h3>
+                            <div id="veggie-btn"></div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-image-container"></div>
@@ -54,8 +59,7 @@
         <div class="container">
             <div class="columns" id="plant-container">
                 <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-card-container"></div>
-                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-info-container"></div>
-            </div>
+                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-info-container"></div            </div>
        </div>
     </main>
 
