@@ -46,7 +46,6 @@ var formSubmitHandler = function (event) {
     var invalidInput = document.createElement("p")
     invalidInput.innerHTML = "Please enter a fruit or vegetable.";
     invalidInputEl.appendChild(invalidInput);
-
   }
 };
 
