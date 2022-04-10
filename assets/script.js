@@ -34,7 +34,7 @@ var formSubmitHandler = function (event) {
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
         searchHistoryEl.innerHTML = plant;
-        veggieButton.appendChild(searchHistoryEl)
+        veggieButton.appendChild(searchHistoryEl);
         
     getPlantInfo(plant);
     plantInput.value = "";
@@ -60,28 +60,28 @@ var getPlantInfo = function (plantInput) {
         console.log(data) 
 
          //create card div
-      var introPlantCard = document.createElement("div");
+      var introPlantCardEl = document.createElement("div");
       //create header and body for card
-      var introCardHeader = document.createElement("h2");
-      introCardHeader.innerHTML = "Showing information for: " + plantInput;
-      var introCardBody = document.createElement("p");
+      var introCardHeaderEl = document.createElement("h2");
+      introCardHeaderEl.innerHTML = "Showing information for: " + plantInput;
+      var introCardBodyEl = document.createElement("p");
 
       //append header to card
-      introPlantCard.appendChild(introCardHeader);
+      introPlantCardEl.appendChild(introCardHeaderEl);
       //append body to card
-      introPlantCard.appendChild(introCardBody);
+      introPlantCardEl.appendChild(introCardBodyEl);
       //append card to container
-      plantCardContainerEl.appendChild(introPlantCard);
+      plantCardContainerEl.appendChild(introPlantCardEl);
 
       //create Info card and body
-      var infoCard = document.createElement("div");
-      var infoCardBody = document.createElement("div");
+      var infoCardEl = document.createElement("div");
+      var infoCardBodyEl = document.createElement("div");
 
    // Displaying plant results with an image from website
       
      var image = document.createElement("img");
      image.src = data.data[0].attributes.main_image_path; 
-     image.setAttribute('width', '250px');
+     image.setAttribute('width', '400px');
      image.setAttribute('height', '200px');
      image.style.border = "4px solid white";
      image.style.borderRadius = "10px";
@@ -95,7 +95,7 @@ var getPlantInfo = function (plantInput) {
           plantName.innerHTML =
             "<u><b>BINOMIAL NAME:</b></u> Sorry, no information available.";
         else plantName.innerHTML = "<u><b>BINOMIAL NAME:</b></u> " + latinName;
-        plantContainerEl.appendChild(plantName);
+        infoCardBodyEl.appendChild(plantName);
   
         //Description pulled from OpenFarm
         var description = data?.data[0]?.attributes?.description;
@@ -106,7 +106,7 @@ var getPlantInfo = function (plantInput) {
         else
           plantDescription.innerHTML =
             "<u><b>DESCRIPTION:</b></u> " + description;
-        plantContainerEl.appendChild(plantDescription);
+            introCardBodyEl.appendChild(plantDescription);
   
         // Sun info pulled from OpenFarm
         var sun = data?.data[0]?.attributes?.sun_requirements;
@@ -115,7 +115,7 @@ var getPlantInfo = function (plantInput) {
           plantSun.innerHTML =
             "<u><b>SUN REQUIREMENTS:</b></u> Sorry, no information available.";
         else plantSun.innerHTML = "<u><b>SUN REQUIREMENTS:</b></u> " + sun;
-        plantContainerEl.appendChild(plantSun);
+        infoCardBodyEl.appendChild(plantSun);
   
         // Growth Info pulled from OpenFarm
         var growth = data?.data[0]?.attributes?.growing_degree_days;
@@ -124,7 +124,7 @@ var getPlantInfo = function (plantInput) {
           plantGrowth.innerHTML =
             "<u><b>GROWTH:</b></u> Sorry, no information available.";
         else plantGrowth.innerHTML = "<u><b>GROWTH:</b></u> " + growth + " days";
-        plantContainerEl.appendChild(plantGrowth);
+        infoCardBodyEl.appendChild(plantGrowth);
   
         // Sowing Steps pulled from OpenFarm
         var sow = data?.data[0]?.attributes?.sowing_method;
@@ -133,7 +133,7 @@ var getPlantInfo = function (plantInput) {
           plantSow.innerHTML =
             "<u><b>SOWING INSTRUCTIONS:</b></u> Sorry, no information available.";
         else plantSow.innerHTML = "<u><b>SOWING INSTRUCTIONS:</b></u> " + sow;
-        plantContainerEl.appendChild(plantSow);
+        infoCardBodyEl.appendChild(plantSow);
   
         // Seed Spread pulled from OpenFarm
         var spread = data?.data[0]?.attributes?.spread;
@@ -144,7 +144,7 @@ var getPlantInfo = function (plantInput) {
         else
           plantSpread.innerHTML =
             "<u><b>SEED SPREAD:</b></u> Plant seeds " + spread + "cm";
-        plantContainerEl.appendChild(plantSpread);
+            infoCardBodyEl.appendChild(plantSpread);
   
         // Row Spacing pulled from OpenFarm
         var space = data?.data[0]?.attributes?.row_spacing;
@@ -157,7 +157,7 @@ var getPlantInfo = function (plantInput) {
             "<u><b>ROW SPACING:</b></u> Make sure rows are " +
             space +
             "cm apart.";
-        plantContainerEl.appendChild(plantSpace);
+            infoCardBodyEl.appendChild(plantSpace);
   
         // Plant Height pulled from OpenFarm
         var height = data?.data[0]?.attributes?.height;
@@ -168,10 +168,10 @@ var getPlantInfo = function (plantInput) {
         else
           plantHeight.innerHTML =
             "<u><b>PLANT HEIGHT:</b></u> " + height + "cm tall.";
-        plantContainerEl.appendChild(plantHeight);
+            infoCardBodyEl.appendChild(plantHeight);
 
-   infoCard.appendChild(infoCardBody);
-   plantInfoContainerEl.appendChild(infoCard);
+   infoCardEl.appendChild(infoCardBodyEl);
+   plantInfoContainerEl.appendChild(infoCardEl);
     })
 }
 searchButtonEl.addEventListener("click", formSubmitHandler);
