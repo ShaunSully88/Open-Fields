@@ -21,27 +21,29 @@ var trashEl = document.querySelector("#trash")
 //Defining weatherIcon
 var weatherIconEl = document.querySelector("#weather-icon")
 // search history results
-var searchHistoryEl = document.createElement('button')
+
 // Invalid message
 var invalidInputEl = document.querySelector('#invalid-input')
 
 var weatherIconEl = document.querySelector("#weather-icon")
 // Linking value of plant input to getPlantInfo function. This is a event listener linked to search button.
 var formSubmitHandler = function (event) {
-
+event.preventDefault();
   var plant = plantInput.value.trim();
   if (plant) {
         searchHistory.push(plant);
         localStorage.setItem("VeggieSearch", JSON.stringify(searchHistory));
+        var searchHistoryEl = document.createElement('button')
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
-        searchHistoryEl.setAttribute("style", "display: block")
+        veggieButton.setAttribute("style", "display: block")
         searchHistoryEl.innerHTML = plant;
         searchHistoryEl.style.borderRadius = "10px";
         veggieButton.appendChild(searchHistoryEl);
         
     getPlantInfo(plant);
     plantInput.value = "";
+    
   } else {
     var invalidInput = document.createElement("p")
     invalidInput.innerHTML = "<b>Please enter a fruit or vegetable.</b>";
@@ -215,7 +217,7 @@ var historyHandler = function (event) {
   }
 }
 
-// Load any past city weather searches
+//Load any past city weather searches
 var loadHistory = function () {
   searchArray = JSON.parse(localStorage.getItem("veggieSearch"));
 
@@ -235,8 +237,9 @@ var loadHistory = function () {
 
 // Clearing History via Trash Button
 var clearHistory = function () {
+  localStorage.clear("VeggieSearch");
   localStorage.removeItem("VeggieSearch");
-  searchHistoryEl.setAttribute("style", "display: none");
+  veggieButton.setAttribute("style", "display: none");
 }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
