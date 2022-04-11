@@ -39,7 +39,6 @@ event.preventDefault();
         var searchHistoryEl = document.createElement('button')
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
-        veggieButton.setAttribute("style", "display: block")
         searchHistoryEl.innerHTML = plant;
         searchHistoryEl.style.borderRadius = "10px";
         veggieButton.appendChild(searchHistoryEl);
@@ -95,7 +94,7 @@ var getPlantInfo = function (plantInput) {
      image.src = data.data[0].attributes.main_image_path; 
      image.setAttribute('width', '400px');
      image.setAttribute('height', '200px');
-     image.style.border = "4px solid white";
+     image.style.border = "4px solid #E9E5D6";
      image.style.borderRadius = "10px";
      image.innerHTML = image;
      plantImageContainerEl.appendChild(image); 
@@ -256,8 +255,7 @@ var loadHistory = function () {
 var clearHistory = function () {
   localStorage.clear();
   localStorage.removeItem("VeggieSearch");
-  veggieButton.setAttribute("style", "display: none");
-}
+  }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
