@@ -26,3 +26,4 @@ We used two seperate server side API's, one to https://openfarm.cc/api/v1/crops/
 https://shaunsully88.github.io/Open-Fields/
 
 ## Screenshot of Site
+![open fields screencapture](https://user-images.githubusercontent.com/99379999/162664429-23ab26d7-0c77-44d4-8161-16a71359ff99.png)
