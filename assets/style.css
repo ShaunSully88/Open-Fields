@@ -13,69 +13,116 @@
 body {
     font-family: 'Assistant', sans-serif;
     background-color: var(--secondary-color);
-    height: 100;
-}
+    }
 header {
+    padding: 20px 35px;
+    align-items: baseline;
     background-color: var(--secondary-color);
     color: var(--quarternary-color);
+    display: flex;
+    flex-wrap: wrap;
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    z-index: 9999;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url(./images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg);
+    background-size: cover;
+    background-position:center;
+    background-attachment: fixed;
+    background-position:80%;
+    }
+    
+    header a {
+        color: var(--quarternary-color) !important;
+        text-decoration: none !important;
+        }
+header h1 {
+    font-family: 'Seaweed Script', cursive;
+    font-size:60px;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
-}
-header ul{
-    height:50px;
-}
 header li{
     height:50px;
-    padding: 8px;
-}
-.navbar-section li {
-
+    padding: 10px;
+    margin-left:5px;
     list-style-type: none;
 }
-.navbar {
-    align-items: baseline;
-    padding:1vw 1vw;    
-    }
-
-.navbar h1 {
-    font-family: 'Seaweed Script', cursive;
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
 }
-.nav-contact {
+header nav {
+    margin: 7px 0;
+  }
+
+  header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+
+     
+  .nav-contact {
     background-color: var(--tertiary-color);
-    border-radius: 10px;
+    color:var(--quarternary-color);
+    border-radius: 15px;
     padding: 5px;
     font-size: 25px;
 }
 #weather-icon {
     background-color: var(--tertiary-color);
-    border-radius: 10px;
+    color: var(--secondary-color);
+    border-radius: 15px;
     flex-direction: row-reverse;
     align-items:center;
 }
-
-header a {
-    color: var(--quarternary-color) !important;
-    text-decoration: none !important;
-    }
-
-.hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url(./images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg);
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    position: relative;
-    width: 100vw;
-    height:50%;
-}  
-
-.hero-cta {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--quarternary-color);
+  #weather-icon:hover {
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+    border-radius: 15px;
+    text-shadow: none;
+  }
+  .nav-contact:hover {
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+    border-radius: 15px;
+    text-shadow: none;
+  }
+.navbar {
+    align-items: baseline;
 }
 
+.hero-container {
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url(./images/markus-spiske-vrbZVyX2k4I-unsplash-sm.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: 80%;
+    display:flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    } 
+
+    .hero-cta {
+        text-align: center;
+        color:var(--quarternary-color);
+        width: 100%;
+        margin: 3.5%;
+        font-size: 25px;
+        font-weight:700;
+        line-height: 1.2;
+      }
+
+
+.row1 {
+align-items:center;
+}
 #search-card {
     background-color: var(--tertiary-color);
     border-radius: 15px;
@@ -93,16 +140,43 @@ header a {
     border-radius:15px;
     margin: 2vw 5vw 5vw 5vw;
     padding: 15px;
-
 }
-#plant-container {
-    color: var(--quarternary-color);
-    padding: 10px;
-    
+.search-history label {
+    margin-bottom: 5px;
 }
+#invalid-input {
+   padding-left:25px;
+   font-style: italic;
+   }
+.search-container {
+    width: 40;
+}
+.plant-container {
+    color: var(--secondary-color);
+    font-size: 30px;
+    padding: 0px 10px 10px 10px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0px;
+    }
+#plant-card-container {
+    background-color: var(--tertiary-color);
+    max-width: 100%;
+    border-radius: 15px;
+   
+}
+#plant-info-container {
+    background-color: var(--tertiary-color);
+    max-width: 100%;
+    margin-left: 10px;
+    border-radius: 15px; 
+    }
 #plant-image-container {
     padding-top: 40px;
-}
+    width:100%;
+   }
 .description {
     width: 300px;
 }
@@ -113,6 +187,8 @@ header a {
 footer {
     background-color: var(--tertiary-color);
     width:100%;
+    margin-top: 25px;
+    padding-top: 10px;
  }
 footer ul {
     width: 100%;
@@ -124,6 +200,48 @@ footer li {
     width: 100;
 }
 footer a {
-    color: var(--secondary-color) !important;
+    color: var(--quarternary-color) !important;
     text-decoration: none !important;
 }
+footer h2 {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 980px) {
+    header {
+      padding-bottom: 0;
+      justify-content: center;
+      position: relative
+    }
+  
+    header h1 {
+      width: 100%;
+      text-align: center;
+      margin: 0px;
+    }
+  
+    header nav ul {
+      width: 100%;
+      justify-content: center;
+    }
+    .plant-container {
+        width: 100%;
+        flex: 0 100%;
+        margin-right: 0px;
+        }
+    #plant-card-container {
+        flex: 0 100%;
+          }
+    #plant-info-container {
+        flex: 0 100%;
+        margin-top: 15px;
+        margin-left:0px;
+               }
+
+    #plant-image-container {     
+        margin:auto;
+        padding: 0px;
+        margin-bottom:25px;
+        flex: 0 50%;}
+    }
+    

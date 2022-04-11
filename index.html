@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300&family=Seaweed+Script&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a04a1e64e8.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
     <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
@@ -17,22 +16,20 @@
     <title>Open Fields Gardening Tool </title>
 </head>
 <body>
-    <header class="navbar">
-        <section class="navbar-section">
-             <h1><a href="./index.html">Open Fields </a></h1>
-             <i class="fa-solid fa-seedling"></i>
-        </section>   
-        <section class="navbar-section" id="contact">
+    <header class="navbar d-flex">
+                    <h1><a href="./index.html">Open Fields </a><i class="fa-solid fa-seedling"></i></h1>
+        <nav class="navbar-section" id="contact">
             <ul class="nav-list d-inline-flex">
-                <li><div class="nav-contact text-bold text-large p-0"><a href="#contact-us">CONTACT US</a></div> </li>
-                <li><div class = "px-2 text-center d-inline-flex m-0" id="weather-icon">
+                <li class="nav-contact text-bold text-large"><a href="#contact-us">CONTACT US</a></li>
+                <li class = "text-center d-inline-flex" id="weather-icon">
                     <span class = "text-bold" id="temp-icon"></span>
-                </div></li>
+                </li>
             </ul>
-        </section>     
+        </nav>
+        
     </header>   
     <main>
-        <section class="hero">
+        <section class="hero-container">
             <div class="hero-cta">
                 <h2>Start Planting Today.</h2>
 
@@ -41,8 +38,8 @@
             </div>
         </section>
         <div class="container">
-            <div class="columns" id="row1"> 
-                <div class="column col-sm-12 col-md-6 col-lg-6">
+            <div class="columns row1" id="row1"> 
+                <div class="column search-container col-sm-12 col-md-12 col-lg-6">
                     <div class="card" id="search-card">
                         <div class="card-header">
                             <label class="success label text-bold" for="search">Search Plants</label>
@@ -55,24 +52,24 @@
                         <div class="card-footer">
                             <button class="btn btn-primary" id="search-button">Search</button>
                         </div>
-                
                     </div>
                     <div id="search-container">
                         <div class= "search-history" id="searchHistory">
-                            <label class="success label text-bold" for="search">Search History <i id="trash" class='fas fa-trash ' title='Clear History'></i></label>
-                           
+                            <label class="success label text-bold" for="search">Search History </label>
+                            <button id="trash" class='text-small' title='Clear History'>Delete History</button>
                             <div id="veggie-btn"></div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-image-container"></div>
+                <div class="column col-sm-12 col-md-12 col-lg-6 img-responsive" id="plant-image-container"></div>
 
                 
         <div class="container">
-            <div class="columns" id="plant-container">
-                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-card-container"></div>
-                <div class="column col-sm-12 col-md-6 col-lg-6" id="plant-info-container"></div >           </div>
+            <div class="columns plant-container" id="plant-container">
+                <div class="column col-md-12 col-lg-4" id="plant-card-container"></div>
+                <div class="column col-md-12 col-lg-4" id="plant-info-container"></div >           
+            </div>
        </div>
      <footer>
          <div class="contact-us text-center" id="contact-us">
