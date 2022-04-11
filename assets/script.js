@@ -39,6 +39,7 @@ event.preventDefault();
         var searchHistoryEl = document.createElement('button')
         searchHistoryEl.className = "btn";
         searchHistoryEl.setAttribute("veggieData", plant)
+        veggieButton.setAttribute("style", "display: block")
         searchHistoryEl.innerHTML = plant;
         searchHistoryEl.style.borderRadius = "10px";
         veggieButton.appendChild(searchHistoryEl);
@@ -255,6 +256,7 @@ var loadHistory = function () {
 var clearHistory = function () {
   localStorage.clear();
   localStorage.removeItem("VeggieSearch");
+  veggieButton.setAttribute("style", "display: none");
   }
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
