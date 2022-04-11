@@ -17,7 +17,7 @@ var veggieButton = document.querySelector("#veggie-btn")
 // Clear Search History
 var historyCardEl = document.querySelector("#searchHistory")
 //trash icon
-var trashEl = document.querySelector("#trash")
+var trashEl = document.getElementById("trash")
 //Defining weatherIcon
 var weatherIconEl = document.querySelector("#weather-icon")
 // search history results
@@ -261,7 +261,7 @@ var clearHistory = function () {
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
-trashEl.addEventListener("submit", clearHistory);
+trashEl.addEventListener("click", clearHistory);
 
 loadHistory();
 
