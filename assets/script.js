@@ -261,7 +261,7 @@ var clearHistory = function () {
 
 searchButtonEl.addEventListener("click", formSubmitHandler);
 veggieButton.addEventListener("click", historyHandler );
-trashEl.addEventListener("click", clearHistory);
+trashEl.addEventListener("submit", clearHistory);
 
 loadHistory();
 
